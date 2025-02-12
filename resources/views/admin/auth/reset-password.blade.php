@@ -23,6 +23,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+    @vite(['resources/js/admin/login.js'])
 </head>
 
 <body class=" d-flex flex-column">
@@ -60,11 +61,11 @@
                         <label for="password" class="form-label">Enter Password</label>
 
                         <div class="input-group input-group-flat">
-                            <input type="password" id="password"name="password" class="form-control"
+                            <input type="password" id="password"name="password" class="form-control password"
                                 placeholder="Enter password" autocomplete="current-password" required>
-                            <span class="input-group-text">
+                            <span class="input-group-text toggle-password">
 
-                                <a href="#" class="link-secondary" title="Show password"
+                                <a href="javascript:;" class="link-secondary" title="Show password"
                                     data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -86,11 +87,11 @@
 
                         <div class="input-group input-group-flat">
                             <input type="password" id="password_confirmation"name="password_confirmation"
-                                class="form-control" placeholder="Confirm password" autocomplete="current-password"
-                                required>
-                            <span class="input-group-text">
+                                class="form-control confirm-password" placeholder="Confirm password"
+                                autocomplete="current-password" required>
+                            <span class="input-group-text confirm-password-toggle">
 
-                                <a href="#" class="link-secondary" title="Show password"
+                                <a href="javascript:;" class="link-secondary" title="Show password"
                                     data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"

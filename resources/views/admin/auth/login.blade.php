@@ -64,10 +64,10 @@
                         @endif
 
                         <div class="input-group input-group-flat">
-                            <input type="password" id="password"name="password" class="form-control"
+                            <input type="password" id="password"name="password" class="form-control password"
                                 placeholder="Your password" autocomplete="current-password" required>
-                            <span class="input-group-text">
-                                <a href="#" class="link-secondary" title="Show password"
+                            <span class="input-group-text toggle-password">
+                                <a href="javascript:;" class="link-secondary" title="Show password"
                                     data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                         viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
