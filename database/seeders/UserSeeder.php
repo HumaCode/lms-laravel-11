@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'email'                 => 'user@gmail.com',
             'email_verified_at'     => now(),
             'password'              => bcrypt(123),
-            'role'                  => 'student',
+            'login_as'              => 'student',
         ]);
 
         User::create([
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'email'                 => 'instructor@gmail.com',
             'email_verified_at'     => now(),
             'password'              => bcrypt(123),
-            'role'                  => 'instructor',
+            'login_as'              => 'instructor',
         ]);
     }
 }
