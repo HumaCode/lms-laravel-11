@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <a class="back_btn" href="index.html">Back to Home</a>
+        <a class="back_btn" href="{{ route('login') }}">Back to Login Page</a>
     </section>
     <!--===========================
         SIGN UP END

@@ -50,5 +50,7 @@ class RegisteredUserController extends Controller
         } else if ($request->user()->role == 'instructor') {
             return redirect()->intended(route('instructor.dashboard', absolute: false));
         }
+
+        return abort(404);
     }
 }
