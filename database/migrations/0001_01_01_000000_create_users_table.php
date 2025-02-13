@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('website')->nullable();
             $table->string('github')->nullable();
-            $table->enum('login_as', ['instructor', 'student']);
+            $table->enum('role', ['instructor', 'student']);
             $table->rememberToken();
             $table->timestamps();
         });
