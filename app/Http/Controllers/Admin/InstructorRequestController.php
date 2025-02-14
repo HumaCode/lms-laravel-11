@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class InstructorRequestController extends Controller
@@ -12,7 +13,9 @@ class InstructorRequestController extends Controller
      */
     public function index()
     {
-        return view('admin.instructor-request.index');
+        $instructorRequest = User::where('approved_status', 'pending')->get();
+
+        return view('admin.instructor-request.index', compact('instructorRequest'));
     }
 
     /**
