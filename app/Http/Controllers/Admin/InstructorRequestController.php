@@ -32,8 +32,8 @@ class InstructorRequestController extends Controller
             'status' => ['required', 'in:approved,rejected,pending']
         ]);
 
-        $instructor_request->approved_status  = $request->status;
-        $instructor_request->status == 'approved' ? $instructor_request->role = 'instructor' : '';
+        $instructor_request->approved_status    = $request->status;
+        $instructor_request->role               = 'instructor';
         $instructor_request->save();
 
         self::sendNotification($instructor_request);

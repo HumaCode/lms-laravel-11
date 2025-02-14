@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                            BREADCRUMB START
-                                                                                                                                        ============================-->
+                                                                                                                                                                                        BREADCRUMB START
+                                                                                                                                                                                    ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                            BREADCRUMB END
-                                                                                                                                        ============================-->
+                                                                                                                                                                                        BREADCRUMB END
+                                                                                                                                                                                    ============================-->
 
 
     <!--===========================
-                                                                                                                                            DASHBOARD OVERVIEW START
-                                                                                                                                        ============================-->
+                                                                                                                                                                                        DASHBOARD OVERVIEW START
+                                                                                                                                                                                    ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -39,7 +39,7 @@
                 <div class="col-xl-9 col-md-8">
 
                     <div class="text-end mb-4">
-                        <a href="" class="btn btn-primary">Become a Instructor</a>
+                        <a href="{{ route('student.dashboard') }}" class="common_btn">Back</a>
                     </div>
 
                     <div class="row">
@@ -48,14 +48,18 @@
                                 Become a Instructor
                             </div>
                             <div class="card-body">
-                                <form action="">
+                                <form action="{{ route('student.become-instructor.update', auth()->user()->id) }}"
+                                    method="POST" enctype="multipart/form-data">
+                                    @csrf
+
                                     <div class="form-group">
                                         <label for="document">Document</label>
                                         <input type="file" name="document" id="document" class="form-control">
+                                        <x-input-error :messages="$errors->get('document')" class="mt-2" />
                                     </div>
 
                                     <div class="form-group mt-4">
-                                        <button type="button" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="common_btn">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -68,6 +72,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                            DASHBOARD OVERVIEW END
-                                                                                                                                        ============================-->
+                                                                                                                                                                                        DASHBOARD OVERVIEW END
+                                                                                                                                                                                    ============================-->
 @endsection

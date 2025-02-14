@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                        BREADCRUMB START
-                                                                                    ============================-->
+                                                                                            BREADCRUMB START
+                                                                                        ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                        BREADCRUMB END
-                                                                                    ============================-->
+                                                                                            BREADCRUMB END
+                                                                                        ============================-->
 
 
     <!--===========================
-                                                                                        DASHBOARD OVERVIEW START
-                                                                                    ============================-->
+                                                                                            DASHBOARD OVERVIEW START
+                                                                                        ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -203,7 +203,7 @@
                         </div>
                     @endif
                     <div class="text-end">
-                        <a href="{{ route('student.become-instructor') }}" class="btn btn-primary">Become a
+                        <a href="{{ route('student.become-instructor') }}" class="common_btn">Become a
                             Instructor</a>
                     </div>
 
@@ -238,6 +238,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                        DASHBOARD OVERVIEW END
-                                                                                    ============================-->
+                                                                                            DASHBOARD OVERVIEW END
+                                                                                        ============================-->
 @endsection
