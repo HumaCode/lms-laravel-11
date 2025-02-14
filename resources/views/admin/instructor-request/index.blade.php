@@ -72,7 +72,6 @@
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Status</th>
-                                                        <th>Role</th>
                                                         <th>Document</th>
                                                         <th>
                                                             Action
@@ -87,7 +86,7 @@
                                                             <td>
                                                                 {{ $instructor->email }}
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                                 @if ($instructor->approved_status === 'pending')
                                                                     <span class="badge bg-yellow text-yellow-fg">
                                                                         Pending
@@ -100,15 +99,7 @@
                                                                 @endif
                                                             </td>
 
-                                                            <td>
-                                                                @if ($instructor->role === 'student')
-                                                                    <span
-                                                                        class="badge badge-outline text-indigo">Student</span>
-                                                                @elseif($instructor->role === 'instructor')
-                                                                    <span
-                                                                        class="badge badge-outline text-green">Instructor</span>
-                                                                @endif
-                                                            </td>
+
                                                             <td class="text-center">
                                                                 <a href="#" class="text-muted">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -126,12 +117,24 @@
                                                                 </a>
                                                             </td>
                                                             <td>
-                                                                <form action="">
-                                                                    <select name="" id=""
-                                                                        class="form-control">
-                                                                        <option value="">Pending</option>
-                                                                        <option value="">Approved</option>
-                                                                        <option value="">Rejected</option>
+                                                                <form
+                                                                    action="{{ route('admin.instructor-requests.update', $instructor->id) }}"
+                                                                    method="POST" class="status-{{ $instructor->id }}">
+                                                                    @csrf
+                                                                    @method('PUT')
+
+                                                                    <select name="status" id="status"
+                                                                        class="form-control"
+                                                                        onchange="$('.status-{{ $instructor->id }}').submit()">
+                                                                        <option value="pending"
+                                                                            @selected($instructor->approved_status === 'pending')>
+                                                                            Pending</option>
+                                                                        <option value="approved"
+                                                                            @selected($instructor->approved_status === 'approved')>
+                                                                            Approved</option>
+                                                                        <option value="rejected"
+                                                                            @selected($instructor->approved_status === 'rejected')>
+                                                                            Rejected</option>
                                                                     </select>
                                                                 </form>
                                                             </td>

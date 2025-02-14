@@ -20,6 +20,8 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+
+    @vite(['resources/js/admin/admin.js'])
 </head>
 
 <body>
