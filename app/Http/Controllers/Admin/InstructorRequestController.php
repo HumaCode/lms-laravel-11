@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\InstructorRequestApprovedMail;
+use App\Mail\InstructorRequestRejectedMail;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -22,43 +23,6 @@ class InstructorRequestController extends Controller
         return view('admin.instructor-request.index', compact('instructorRequest'));
     }
 
-    public function download(User $user)
-    {
-        return response()->download(public_path($user->document));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
@@ -72,12 +36,7 @@ class InstructorRequestController extends Controller
         $instructor_request->status == 'approved' ? $instructor_request->role = 'instructor' : '';
         $instructor_request->save();
 
-
-        if (config('mail_queue.is_queue')) {
-            Mail::to($instructor_request->email)->queue(new InstructorRequestApprovedMail());
-        } else {
-            Mail::to($instructor_request->email)->send(new InstructorRequestApprovedMail());
-        }
+        self::sendNotification($instructor_request);
 
         return redirect()->back();
     }
@@ -88,5 +47,26 @@ class InstructorRequestController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public static function sendNotification($instructor_request)
+    {
+        switch ($instructor_request->approved_status) {
+            case 'approved':
+                if (config('mail_queue.is_queue')) {
+                    Mail::to($instructor_request->email)->queue(new InstructorRequestApprovedMail());
+                } else {
+                    Mail::to($instructor_request->email)->send(new InstructorRequestApprovedMail());
+                }
+                break;
+            case 'rejected':
+                if (config('mail_queue.is_queue')) {
+                    Mail::to($instructor_request->email)->queue(new InstructorRequestRejectedMail());
+                } else {
+                    Mail::to($instructor_request->email)->send(new InstructorRequestRejectedMail());
+                }
+            default:
+                break;
+        }
     }
 }
