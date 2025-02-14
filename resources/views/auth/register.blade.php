@@ -81,20 +81,20 @@
                                 </p>
                                 <div class="row">
 
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="wsus__login_form_input">
                                             <label for="name">Name</label>
                                             <input type="text" name="name" id="name"
-                                                placeholder="Input Name" required autofocus autocomplete="name">
+                                                placeholder="Input Name" autofocus autocomplete="name">
                                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="wsus__login_form_input">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" id="email"
-                                                placeholder="Input Email" required>
+                                                placeholder="Input Email">
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                         <div class="wsus__login_form_input">
                                             <label for="password">Password</label>
                                             <input type="password" name="password" id="password"
-                                                placeholder="Input Password" required autocomplete="new-password">
+                                                placeholder="Input Password" autocomplete="new-password">
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                             <label for="password_confirmation">Confirm Password</label>
                                             <input type="password" name="password_confirmation"
                                                 id="password_confirmation" placeholder="Password Confirmation"
-                                                required autocomplete="new-password">
+                                                autocomplete="new-password">
                                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                         </div>
                                     </div>
@@ -129,7 +129,8 @@
 
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
-                            <form action="{{ route('register') }}" method="POST">
+                            <form action="{{ route('register', ['type' => 'instructor']) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <h2>Sign Up<span>!</span></h2>
@@ -138,34 +139,44 @@
                                 </p>
                                 <div class="row">
 
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="wsus__login_form_input">
                                             <label for="name">Name</label>
                                             <input type="text" name="name" id="name"
-                                                placeholder="Input Name" required autofocus autocomplete="name">
+                                                placeholder="Input Name" autofocus autocomplete="name">
                                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="wsus__login_form_input">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" id="email"
-                                                placeholder="Input Email" required>
+                                                placeholder="Input Email">
                                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
                                     </div>
 
                                     <div class="col-xl-12">
                                         <div class="wsus__login_form_input">
+                                            <label for="document">Document <span
+                                                    class="text-danger">(Education/Certificate)</span></label>
+                                            <input type="file" name="document" id="document"
+                                                placeholder="Input Document">
+                                            <x-input-error :messages="$errors->get('document')" class="mt-2" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-6">
+                                        <div class="wsus__login_form_input">
                                             <label for="password">Password</label>
                                             <input type="password" name="password" id="password"
-                                                placeholder="Input Password" required autocomplete="new-password">
+                                                placeholder="Input Password" autocomplete="new-password">
                                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="wsus__login_form_input">
                                             <label for="password_confirmation">Confirm Password</label>
                                             <input type="password" name="password_confirmation"

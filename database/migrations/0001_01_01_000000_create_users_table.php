@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('image')->default('/default-files/user.png');
             $table->string('headline')->nullable();
             $table->string('bio')->nullable();
-            $table->enum('genre', ['male', 'female'])->nullable();
+            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->string('document')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,7 +27,9 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('website')->nullable();
             $table->string('github')->nullable();
+            $table->enum('approved_status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->enum('role', ['instructor', 'student']);
+            $table->enum('login_as', ['student', 'instructor'])->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
