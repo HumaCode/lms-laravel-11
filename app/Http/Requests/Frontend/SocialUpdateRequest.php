@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
 
-class PasswordUpdateRequest extends FormRequest
+class SocialUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +22,11 @@ class PasswordUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'current_password'  => ['required', 'current_password'],
-            'password'          => ['required', Password::defaults(), 'confirmed'],
+            'facebook'      => ['nullable', 'max:255', 'string'],
+            'x'             => ['nullable', 'max:255', 'string'],
+            'linkedin'      => ['nullable', 'max:255', 'string'],
+            'website'       => ['nullable', 'max:255', 'string'],
+            'github'        => ['nullable', 'max:255', 'string'],
         ];
     }
 }

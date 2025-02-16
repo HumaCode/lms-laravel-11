@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                                                                                                                                                                            BREADCRUMB START
-                                                                                                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                                                                                        BREADCRUMB START
+                                                                                                                                                                                                                                                                                                                    ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                                                            BREADCRUMB END
-                                                                                                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                                                                                        BREADCRUMB END
+                                                                                                                                                                                                                                                                                                                    ============================-->
 
 
     <!--===========================
-                                                                                                                                                                                                                                                                                            DASHBOARD OVERVIEW START
-                                                                                                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW START
+                                                                                                                                                                                                                                                                                                                    ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -193,34 +193,54 @@
 
                         </div>
 
-                        <form action="#" class="wsus__dashboard_profile_update">
+                        <form action="{{ route('student.profile.profile-social') }}"
+                            class="wsus__dashboard_profile_update" method="POST">
+                            @csrf
+
                             <div class="row">
 
-                                <div class="col-xl-12">
+                                <div class="col-md-6">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Facebook</label>
-                                        <input type="text" name="facebook" placeholder="Enter facebook">
+                                        <input type="text" name="facebook" placeholder="Enter facebook"
+                                            value="{{ auth()->user()->facebook }}">
+                                        <x-input-error :messages="$errors->get('facebook')" class="mt-2" />
                                     </div>
                                 </div>
 
-                                <div class="col-xl-12">
+                                <div class="col-md-6">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>X</label>
-                                        <input type="text" name="x" placeholder="Enter x">
+                                        <input type="text" name="x" placeholder="Enter x"
+                                            value="{{ auth()->user()->x }}">
+                                        <x-input-error :messages="$errors->get('x')" class="mt-2" />
                                     </div>
                                 </div>
 
-                                <div class="col-xl-12">
+                                <div class="col-md-6">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Linkedin</label>
-                                        <input type="text" name="linkedin" placeholder="Enter linkedin">
+                                        <input type="text" name="linkedin" placeholder="Enter linkedin"
+                                            value="{{ auth()->user()->linkedin }}">
+                                        <x-input-error :messages="$errors->get('linkedin')" class="mt-2" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Github</label>
+                                        <input type="text" name="github" placeholder="Enter github"
+                                            value="{{ auth()->user()->github }}">
+                                        <x-input-error :messages="$errors->get('github')" class="mt-2" />
                                     </div>
                                 </div>
 
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Website</label>
-                                        <input type="text" name="website" placeholder="Enter website">
+                                        <input type="text" name="website" placeholder="Enter website"
+                                            value="{{ auth()->user()->website }}">
+                                        <x-input-error :messages="$errors->get('website')" class="mt-2" />
                                     </div>
                                 </div>
 
@@ -237,6 +257,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                                                            DASHBOARD OVERVIEW END
-                                                                                                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW END
+                                                                                                                                                                                                                                                                                                                    ============================-->
 @endsection
