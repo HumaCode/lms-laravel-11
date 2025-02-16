@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                    BREADCRUMB START
-                                                                                                                                ============================-->
+                                                                                                                                                                                                            BREADCRUMB START
+                                                                                                                                                                                                        ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                    BREADCRUMB END
-                                                                                                                                ============================-->
+                                                                                                                                                                                                            BREADCRUMB END
+                                                                                                                                                                                                        ============================-->
 
 
     <!--===========================
-                                                                                                                                    DASHBOARD OVERVIEW START
-                                                                                                                                ============================-->
+                                                                                                                                                                                                            DASHBOARD OVERVIEW START
+                                                                                                                                                                                                        ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -65,70 +65,43 @@
 
                         <form action="#" class="wsus__dashboard_profile_update">
                             <div class="row">
-                                <div class="col-xl-6">
+                                <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
-                                        <label>First name</label>
-                                        <input type="text" placeholder="Enter your first name">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" placeholder="Enter your name">
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
+
+                                <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
-                                        <label>Last name</label>
-                                        <input type="text" placeholder="Enter your last name">
+                                        <label>Headline</label>
+                                        <input type="text" name="headline" placeholder="Enter headline">
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>Phone</label>
-                                        <input type="text" placeholder="Enter your number">
-                                    </div>
-                                </div>
+
                                 <div class="col-xl-6">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Email</label>
-                                        <input type="email" placeholder="Enter your mail">
+                                        <input type="email" name="email" placeholder="Enter your email">
                                     </div>
                                 </div>
+
                                 <div class="col-xl-6">
                                     <div class="wsus__dashboard_profile_update_info">
-                                        <label>Birthday</label>
-                                        <input type="text" placeholder="Enter birthday date">
+                                        <label>Gender</label>
+                                        <select name="gender" id="gender" class="form-control">
+                                            <option disabled selected>Choose</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>Zip Code</label>
-                                        <input type="text" placeholder="Enter zip code ">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>City</label>
-                                        <input type="text" placeholder="Enter your city">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>Country</label>
-                                        <input type="text" placeholder="Enter your country">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>Present Address</label>
-                                        <input type="text" placeholder="Enter your address">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <div class="wsus__dashboard_profile_update_info">
-                                        <label>Permanent Address</label>
-                                        <input type="text" placeholder="Enter your address">
-                                    </div>
-                                </div>
+
+
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>About Me</label>
-                                        <textarea rows="7" placeholder="Your text here"></textarea>
+                                        <textarea rows="7" placeholder="Your text here" name="bio"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
@@ -139,11 +112,60 @@
                             </div>
                         </form>
                     </div>
+
+                    <div class="wsus__dashboard_contant">
+                        <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
+                            <div class="wsus__dashboard_heading">
+                                <h5>Update Social Media Information</h5>
+                                <p>Manage your courses and its update like live, draft and insight.</p>
+                            </div>
+
+                        </div>
+
+                        <form action="#" class="wsus__dashboard_profile_update">
+                            <div class="row">
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Facebook</label>
+                                        <input type="text" name="facebook" placeholder="Enter facebook">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>X</label>
+                                        <input type="text" name="x" placeholder="Enter x">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Linkedin</label>
+                                        <input type="text" name="linkedin" placeholder="Enter linkedin">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Website</label>
+                                        <input type="text" name="website" placeholder="Enter website">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_btn">
+                                        <button type="submit" class="common_btn">Update Social Media</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!--===========================
-                                                                                                                                    DASHBOARD OVERVIEW END
-                                                                                                                                ============================-->
+                                                                                                                                                                                                            DASHBOARD OVERVIEW END
+                                                                                                                                                                                                        ============================-->
 @endsection
