@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                                                                                                                                    BREADCRUMB START
-                                                                                                                                                                                                                                                ============================-->
+                                                                                                                                                                                                                                                                                            BREADCRUMB START
+                                                                                                                                                                                                                                                                                        ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                    BREADCRUMB END
-                                                                                                                                                                                                                                                ============================-->
+                                                                                                                                                                                                                                                                                            BREADCRUMB END
+                                                                                                                                                                                                                                                                                        ============================-->
 
 
     <!--===========================
-                                                                                                                                                                                                                                                    DASHBOARD OVERVIEW START
-                                                                                                                                                                                                                                                ============================-->
+                                                                                                                                                                                                                                                                                            DASHBOARD OVERVIEW START
+                                                                                                                                                                                                                                                                                        ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -134,6 +134,59 @@
                     <div class="wsus__dashboard_contant">
                         <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
                             <div class="wsus__dashboard_heading">
+                                <h5>Update Your Email/Password</h5>
+                                <p>Add your new email or password here to update.</p>
+                            </div>
+                        </div>
+
+
+
+                        <form action="{{ route('student.profile.profile-password') }}" method="POST"
+                            class="wsus__dashboard_profile_update">
+                            @csrf
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Current Password</label>
+                                        <input type="password" name="current_password"
+                                            placeholder="Enter your current password">
+                                        <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Password</label>
+                                        <input type="password" name="password" placeholder="Enter your password">
+                                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="wsus__dashboard_profile_update_info">
+                                        <label>Confirm Password</label>
+                                        <input type="password" name="password_confirmation"
+                                            placeholder="Enter your password confirmation">
+                                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__dashboard_profile_update_btn">
+                                        <button type="submit" class="common_btn">Update Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="wsus__dashboard_contant">
+                        <div class="wsus__dashboard_contant_top d-flex flex-wrap justify-content-between">
+                            <div class="wsus__dashboard_heading">
                                 <h5>Update Social Media Information</h5>
                                 <p>Manage your courses and its update like live, draft and insight.</p>
                             </div>
@@ -184,6 +237,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                    DASHBOARD OVERVIEW END
-                                                                                                                                                                                                                                                ============================-->
+                                                                                                                                                                                                                                                                                            DASHBOARD OVERVIEW END
+                                                                                                                                                                                                                                                                                        ============================-->
 @endsection
