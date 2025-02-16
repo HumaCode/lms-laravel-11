@@ -42,6 +42,8 @@ class ProfileController extends Controller
         $user->headline     = $request->headline;
         $user->save();
 
+        notyf()->success('Update Success.');
+
         return redirect()->back();
     }
 
