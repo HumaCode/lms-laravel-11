@@ -27,6 +27,7 @@ class ProfileUpdateRequest extends FormRequest
             'email'     => ['required', 'max:255', 'string',  'unique:users,email,' . auth()->user()->id],
             'bio'       => ['nullable', 'max:6000'],
             'gender'    => ['nullable', 'in:male,female'],
+            'avatar'    => ['nullable', 'image', 'max:2000'],
         ];
     }
 }

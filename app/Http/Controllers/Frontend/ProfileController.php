@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\FileUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\PasswordUpdateRequest;
 use App\Http\Requests\Frontend\ProfileUpdateRequest;
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    use FileUpload;
+
     public function index()
     {
         return view('frontend.student-dashboard.profile.index');
@@ -20,6 +23,13 @@ class ProfileController extends Controller
     public function profileUpdate(ProfileUpdateRequest $request)
     {
         $user = Auth::user();
+
+        if ($request->hasFile('avatar')) {
+            $avatarPath     = $this->uploadFile($request->file('avatar'));
+            $this->deleteFile($user->image);
+            $user->image    = $avatarPath;
+        }
+
         $user->name         = $request->name;
         $user->email        = $request->email;
         $user->bio          = $request->bio;

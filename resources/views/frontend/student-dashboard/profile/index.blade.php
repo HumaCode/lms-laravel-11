@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                                                                                                                                                                                                        BREADCRUMB START
-                                                                                                                                                                                                                                                                                                                    ============================-->
+                                                                                                                                                                                                                                                                                                                                        BREADCRUMB START
+                                                                                                                                                                                                                                                                                                                                    ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                                                                                        BREADCRUMB END
-                                                                                                                                                                                                                                                                                                                    ============================-->
+                                                                                                                                                                                                                                                                                                                                        BREADCRUMB END
+                                                                                                                                                                                                                                                                                                                                    ============================-->
 
 
     <!--===========================
-                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW START
-                                                                                                                                                                                                                                                                                                                    ============================-->
+                                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW START
+                                                                                                                                                                                                                                                                                                                                    ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -43,29 +43,28 @@
                                 <h5>Update Your Information</h5>
                                 <p>Manage your courses and its update like live, draft and insight.</p>
                             </div>
-                            <div class="wsus__dashboard_profile_delete">
-                                <a href="#" class="common_btn">Delete Profile</a>
-                            </div>
                         </div>
 
-                        <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
-                            <div class="img">
-                                <img src="{{ asset(auth()->user()->image) }}" alt="profile" class="img-fluid w-100">
-                                <label for="profile_photo">
-                                    <img src="{{ asset('/') }}frontend/assets/images/dash_camera.png" alt="camera"
-                                        class="img-fluid w-100">
-                                </label>
-                                <input type="file" id="profile_photo" hidden="">
-                            </div>
-                            <div class="text">
-                                <h6>Your avatar</h6>
-                                <p>PNG or JPG no bigger than 400px wide and tall.</p>
-                            </div>
-                        </div>
+
 
                         <form action="{{ route('student.profile.profile-update') }}" method="POST"
-                            class="wsus__dashboard_profile_update">
+                            class="wsus__dashboard_profile_update" enctype="multipart/form-data">
                             @csrf
+
+                            <div class="wsus__dashboard_profile wsus__dashboard_profile_avatar">
+                                <div class="img">
+                                    <img src="{{ asset(auth()->user()->image) }}" alt="profile" class="img-fluid w-100">
+                                    <label for="profile_photo">
+                                        <img src="{{ asset('/') }}frontend/assets/images/dash_camera.png" alt="camera"
+                                            class="img-fluid w-100">
+                                    </label>
+                                    <input type="file" name="avatar" id="profile_photo" hidden="">
+                                </div>
+                                <div class="text">
+                                    <h6>Your avatar</h6>
+                                    <p>PNG or JPG no bigger than 400px wide and tall.</p>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-xl-12">
@@ -257,6 +256,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW END
-                                                                                                                                                                                                                                                                                                                    ============================-->
+                                                                                                                                                                                                                                                                                                                                        DASHBOARD OVERVIEW END
+                                                                                                                                                                                                                                                                                                                                    ============================-->
 @endsection
