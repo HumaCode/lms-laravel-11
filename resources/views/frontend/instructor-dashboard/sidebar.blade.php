@@ -6,15 +6,14 @@
                     class="img-fluid">
             </div>
             <div class="img">
-                <img src="{{ asset('/') }}frontend/assets/images/dashboard_profile_img.png" alt="profile"
-                    class="img-fluid w-100">
+                <img src="{{ asset(auth()->user()->image) }}" alt="profile" class="img-fluid w-100">
             </div>
-            <h4>Norman Gordon</h4>
-            <p>Instructor</p>
+            <h4>{{ auth()->user()->name }}</h4>
+            <p>{{ auth()->user()->role }}</p>
         </div>
         <ul class="wsus__dashboard_sidebar_menu">
             <li>
-                <a href="dashboard.html" class="active">
+                <a href="{{ route('instructor.dashboard') }}" class="active">
                     <div class="img">
                         <img src="{{ asset('/') }}frontend/assets/images/dash_icon_8.png" alt="icon"
                             class="img-fluid w-100">
@@ -23,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="dashboard_profile.html">
+                <a href="{{ route('instructor.profile.index') }}">
                     <div class="img">
                         <img src="{{ asset('/') }}frontend/assets/images/dash_icon_1.png" alt="icon"
                             class="img-fluid w-100">

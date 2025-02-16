@@ -20,6 +20,11 @@ class ProfileController extends Controller
         return view('frontend.student-dashboard.profile.index');
     }
 
+    public function indexProfilInstructor()
+    {
+        return view('frontend.instructor-dashboard.profile.index');
+    }
+
     public function profileUpdate(ProfileUpdateRequest $request)
     {
         $user = Auth::user();
