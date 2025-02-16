@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                                                                                                                                            BREADCRUMB START
-                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                    BREADCRUMB START
+                                                                                                                                                                                                                                                ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -23,13 +23,13 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                            BREADCRUMB END
-                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                    BREADCRUMB END
+                                                                                                                                                                                                                                                ============================-->
 
 
     <!--===========================
-                                                                                                                                                                                                            DASHBOARD OVERVIEW START
-                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                    DASHBOARD OVERVIEW START
+                                                                                                                                                                                                                                                ============================-->
     <section class="wsus__dashboard mt_90 xs_mt_70 pb_120 xs_pb_100">
         <div class="container">
             <div class="row">
@@ -63,26 +63,38 @@
                             </div>
                         </div>
 
-                        <form action="#" class="wsus__dashboard_profile_update">
+                        <form action="{{ route('student.profile.profile-update') }}" method="POST"
+                            class="wsus__dashboard_profile_update">
+                            @csrf
+
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Full Name</label>
-                                        <input type="text" name="name" placeholder="Enter your name">
+                                        <input type="text" name="name" placeholder="Enter your name"
+                                            value="{{ auth()->user()->name }}">
+                                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
                                     </div>
                                 </div>
 
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
-                                        <label>Headline</label>
-                                        <input type="text" name="headline" placeholder="Enter headline">
+                                        <label>Heading</label>
+                                        <input type="text" name="headline" placeholder="Enter heading"
+                                            value="{{ auth()->user()->headline }}">
+                                        <x-input-error :messages="$errors->get('headline')" class="mt-2" />
+
                                     </div>
                                 </div>
 
                                 <div class="col-xl-6">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>Email</label>
-                                        <input type="email" name="email" placeholder="Enter your email">
+                                        <input type="email" name="email" placeholder="Enter your email"
+                                            value="{{ auth()->user()->email }}">
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
                                     </div>
                                 </div>
 
@@ -91,9 +103,13 @@
                                         <label>Gender</label>
                                         <select name="gender" id="gender" class="form-control">
                                             <option disabled selected>Choose</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
+                                            <option value="male" {{ auth()->user()->gender == 'male' ? 'selected' : '' }}>
+                                                Male</option>
+                                            <option value="female"
+                                                {{ auth()->user()->gender == 'female' ? 'selected' : '' }}>Female</option>
                                         </select>
+                                        <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+
                                     </div>
                                 </div>
 
@@ -101,7 +117,9 @@
                                 <div class="col-xl-12">
                                     <div class="wsus__dashboard_profile_update_info">
                                         <label>About Me</label>
-                                        <textarea rows="7" placeholder="Your text here" name="bio"></textarea>
+                                        <textarea rows="7" placeholder="Your text here" name="bio">{{ auth()->user()->bio }}</textarea>
+                                        <x-input-error :messages="$errors->get('bio')" class="mt-2" />
+
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
@@ -166,6 +184,6 @@
         </div>
     </section>
     <!--===========================
-                                                                                                                                                                                                            DASHBOARD OVERVIEW END
-                                                                                                                                                                                                        ============================-->
+                                                                                                                                                                                                                                                    DASHBOARD OVERVIEW END
+                                                                                                                                                                                                                                                ============================-->
 @endsection
