@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CourseLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class CourseLanguageController extends Controller
 {
@@ -83,8 +84,19 @@ class CourseLanguageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CourseLanguage $course_language)
     {
-        //
+        try {
+            $course_language->delete();
+
+            notyf()->success('Deleted Successfully ...');
+            return response([
+                'message' => 'Deleted Successfully ...',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'message' => 'Something went wrong! ...',
+            ], 500);
+        }
     }
 }
