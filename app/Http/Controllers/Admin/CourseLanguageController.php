@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CourseLanguageController extends Controller
 {
@@ -20,7 +22,7 @@ class CourseLanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.course.course-language.create');
     }
 
     /**
@@ -28,7 +30,18 @@ class CourseLanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:255', 'unique:course_languages']
+        ]);
+
+        $language = new CourseLanguage();
+        $language->name = $request->name;
+        $language->slug = Str::slug($request->name);
+        $language->save();
+
+        notyf()->success('Created Successfully');
+
+        return to_route('admin.course-languages.index');
     }
 
     /**
