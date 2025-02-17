@@ -11,7 +11,7 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Languages Create
+                        Course Languages Edit
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -58,13 +58,15 @@
                                     <h3 class="card-title">Course Languages</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.course-languages.store') }}" method="POST">
+                                    <form action="{{ route('admin.course-languages.update', $course_language->id) }}"
+                                        method="POST">
                                         @csrf
+                                        @method('PUT')
 
                                         <div class="form-group mb-3">
                                             <label for="name" class="mb-2 form-label">Name</label>
                                             <input type="text" name="name" id="name" class="form-control"
-                                                placeholder="Enter language name">
+                                                placeholder="Enter language name" value="{{ $course_language->name }}">
                                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                         </div>
 
@@ -80,7 +82,7 @@
                                                     <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                                                     <path d="M14 4l0 4l-6 0l0 -4" />
                                                 </svg>
-                                                Create
+                                                Update
                                             </button>
                                         </div>
                                     </form>

@@ -80,7 +80,8 @@
                                                                 {{ $language->slug }}
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="" class="btn-sm btn-success">
+                                                                <a href="{{ route('admin.course-languages.edit', $language->id) }}"
+                                                                    class="btn-sm btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
                                                                         stroke="currentColor" stroke-width="2"
