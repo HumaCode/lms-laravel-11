@@ -124,6 +124,9 @@
 
                                                 </tbody>
                                             </table>
+                                            <div class="p-3">
+                                                {{ $languages->links() }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

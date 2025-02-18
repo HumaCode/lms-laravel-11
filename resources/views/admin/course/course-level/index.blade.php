@@ -123,6 +123,10 @@
 
                                                 </tbody>
                                             </table>
+
+                                            <div class="p-3">
+                                                {{ $levels->links() }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@ class CourseLevelController extends Controller
      */
     public function index()
     {
-        $levels = CourseLevel::paginate(10);
+        $levels = CourseLevel::paginate(1);
 
         return view('admin.course.course-level.index', compact('levels'));
     }
