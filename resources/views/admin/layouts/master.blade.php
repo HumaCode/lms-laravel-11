@@ -11,6 +11,9 @@
     {{-- notyf --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
+    {{-- icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+
     <!-- CSS files -->
     <link href="{{ asset('/') }}admin/assets/dist/css/tabler.min.css?1692870487" rel="stylesheet" />
     <link href="{{ asset('/') }}admin/assets/dist/css/demo.min.css?1692870487" rel="stylesheet" />
@@ -26,7 +29,7 @@
         }
     </style>
 
-    @vite(['resources/js/admin/admin.js'])
+    @vite(['resources/js/admin/admin.js', 'resources/css/admin.css'])
 </head>
 
 <body>
