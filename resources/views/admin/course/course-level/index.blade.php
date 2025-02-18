@@ -11,14 +11,13 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Languages
+                        Course Level
                     </h2>
                 </div>
                 <!-- Page title actions -->
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <a href="{{ route('admin.course-languages.create') }}"
-                            class="btn btn-primary d-none d-sm-inline-block">
+                        <a href="{{ route('admin.course-levels.create') }}" class="btn btn-primary d-none d-sm-inline-block">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -56,7 +55,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Course Languages</h3>
+                                    <h3 class="card-title">Course Levels</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="card">
@@ -73,14 +72,14 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    @forelse ($languages as $language)
+                                                    @forelse ($levels as $level)
                                                         <tr>
-                                                            <td>{{ $language->name }}</td>
+                                                            <td>{{ $level->name }}</td>
                                                             <td class="text-center">
-                                                                {{ $language->slug }}
+                                                                {{ $level->slug }}
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('admin.course-languages.edit', $language->id) }}"
+                                                                <a href="{{ route('admin.course-levels.edit', $level->id) }}"
                                                                     class="btn-sm btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
@@ -95,7 +94,7 @@
                                                                     </svg>
                                                                 </a>
 
-                                                                <a href="{{ route('admin.course-languages.destroy', $language->id) }}"
+                                                                <a href="{{ route('admin.course-levels.destroy', $level->id) }}"
                                                                     class="btn-sm text-red delete-item">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
