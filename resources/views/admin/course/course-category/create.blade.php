@@ -53,17 +53,23 @@
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <x-input-block name="name" placeholder="Enter category name"/>
+                                                <x-input-file-block name="image" placeholder="Enter category name"/>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <x-input-block name="icon" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12">
                                                 <x-input-block name="name" placeholder="Enter category name"/>
                                             </div>
-                                            <div class="col-md-12">
-                                                <x-input-block name="name" placeholder="Enter category name"/>
+
+                                            <div class="col-md-6">
+                                                <x-input-toggle-block name="status" label="Make tranding!" checked="true"/>
                                             </div>
-                                            <div class="col-md-12">
-                                                <x-input-block name="name" placeholder="Enter category name"/>
+                                            <div class="col-md-6">
+                                                <x-input-toggle-block name="show_at_tranding" label="Show at tranding" checked="true"/>
                                             </div>
+
+
                                         </div>
 
                                         <div class="form-group">
