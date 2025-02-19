@@ -9,12 +9,14 @@ trait FileUpload
 {
     public function uploadFile(UploadedFile $file, $directory = 'uploads'): string
     {
-        $filename = 'educore_' . uniqid() . '.' . $file->getClientOriginalExtension();
+        try {
+            $filename = 'educore_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path($directory), $filename);
+            return '/' . $directory . '/' . $filename;
+        } catch (\Throwable $e) {
+            throw $e;
+        }
 
-
-        $file->move(public_path($directory), $filename);
-
-        return '/' . $directory . '/' . $filename;
     }
 
     public function deleteFile(string $path)

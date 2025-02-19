@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\FileUpload;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CourseCategoriStoreRequest;
+use App\Models\CourseCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CourseCategoryController extends Controller
 {
+    use FileUpload;
     /**
      * Display a listing of the resource.
      */
@@ -26,9 +31,22 @@ class CourseCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CourseCategoriStoreRequest $request)
     {
-        //
+        $imagePath = $this->uploadFile($request->file('image'));
+
+        $category = new CourseCategory();
+        $category->image                = $imagePath;
+        $category->name                 = $request->name;
+        $category->icon                 = $request->icon;
+        $category->slug                 = Str::slug($request->name);
+        $category->show_at_tranding     = $request->show_at_tranding ?? 0;
+        $category->status               = $request->status ?? 0;
+        $category->save();
+
+        notyf()->success('Created Successfully..');
+
+        return to_route('admin.course-categories.index');
     }
 
     /**
