@@ -3,8 +3,8 @@
 
 @section('content')
     <!--===========================
-                                                                                BREADCRUMB START
-                                                                            ============================-->
+                                                                                    BREADCRUMB START
+                                                                                ============================-->
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -34,7 +34,7 @@
                             <div class="wsus__dashboard_heading relative">
                                 <h5>Courses</h5>
                                 <p>Manage your courses and its update like live, draft and insight.</p>
-                                <a class="common_btn" href="dashboard_add_courses.html">+ add course</a>
+                                <a class="common_btn" href="{{ route('instructor.courses.create') }}">+ add course</a>
                             </div>
                         </div>
 
