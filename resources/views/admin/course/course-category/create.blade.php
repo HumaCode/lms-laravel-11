@@ -56,10 +56,10 @@
                                                 <x-input-file-block name="image" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <x-input-block name="icon" placeholder="Enter category name"/>
+                                                <x-input-block name="name" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <x-input-block name="icon" :value="$course_category->icon" placeholder="Enter category name"/>
+                                                <x-input-block name="icon" placeholder="Enter category icon"/>
                                                     <x-slot name="hint">
                                                         <small class="hint">You can get icon from : <a href="https://tabler.io/icons" target="_blank">Here.!</a></small>
                                                     </x-slot>

@@ -126,7 +126,7 @@
                                                         </tr>
                                                     @empty
                                                         <tr class="text-center">
-                                                            <td colspan="3">No Data Available</td>
+                                                            <td colspan="5">No Data Available</td>
                                                         </tr>
                                                     @endforelse
 
