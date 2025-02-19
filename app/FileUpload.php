@@ -11,7 +11,7 @@ trait FileUpload
     {
         try {
             $filename = 'educore_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path($directory), $filename);
+            $file->storeAs($directory, $filename, 'public');
             return '/' . $directory . '/' . $filename;
         } catch (\Throwable $e) {
             throw $e;

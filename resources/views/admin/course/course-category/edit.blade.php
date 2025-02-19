@@ -54,7 +54,7 @@
 
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
-                                                <x-image-preview class="" src="{{ $course_category->image }}"/>
+                                                <x-image-preview class="" src="{{ asset($course_category->image) }}"/>
                                                 <x-input-file-block name="image" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12 mb-3">
