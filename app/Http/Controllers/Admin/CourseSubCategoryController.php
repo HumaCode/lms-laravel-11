@@ -102,8 +102,20 @@ class CourseSubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CourseCategory $course_category, CourseCategory $course_sub_category)
     {
-        //
+        try {
+            $this->deleteFile($course_sub_category->image);
+            $course_sub_category->delete();
+
+            notyf()->success('Deleted Successfully ...');
+            return response([
+                'message' => 'Deleted Successfully ...',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'message' => 'Something went wrong! ...',
+            ], 500);
+        }
     }
 }

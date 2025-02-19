@@ -18,7 +18,7 @@ class CourseCategoryController extends Controller
      */
     public function index()
     {
-        $categories = CourseCategory::paginate(10);
+        $categories = CourseCategory::whereNull('parent_id')->paginate(10);
 
         return view('admin.course.course-category.index', compact('categories'));
     }

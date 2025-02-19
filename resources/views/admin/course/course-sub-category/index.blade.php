@@ -17,6 +17,18 @@
                 <!-- Page title actions -->
                 <div class="col-auto ms-auto d-print-none">
                     <div class="btn-list">
+                        <a href="{{ route('admin.course-categories.index') }}" class="btn btn-danger d-none d-sm-inline-block">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-corner-down-left">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 6v6a3 3 0 0 1 -3 3h-10l4 -4m0 8l-4 -4" />
+                            </svg>
+                            Back
+                        </a>
+
                         <a href="{{ route('admin.course-sub-categories.create', $course_category->id) }}"
                             class="btn btn-primary d-none d-sm-inline-block">
                             <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -106,7 +118,7 @@
 
 
 
-                                                                <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
+                                                                <a href="{{ route('admin.course-sub-categories.destroy', ['course_category' => $course_category->id, 'course_sub_category' => $category->id]) }}"
                                                                     class="btn-sm text-red delete-item">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
