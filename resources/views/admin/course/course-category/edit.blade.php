@@ -11,7 +11,7 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Categories Create
+                        Course Categories Edit
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -45,18 +45,17 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Course Categories</h3>
+                                    <h3 class="card-title">Course Categories Edit</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.course-categories.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.course-categories.update', $course_category->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
 
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
+                                                <x-image-preview class="" src="{{ $course_category->image }}"/>
                                                 <x-input-file-block name="image" placeholder="Enter category name"/>
-                                            </div>
-                                            <div class="col-md-12 mb-3">
-                                                <x-input-block name="icon" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <x-input-block name="icon" :value="$course_category->icon" placeholder="Enter category name"/>
@@ -64,12 +63,15 @@
                                                         <small class="hint">You can get icon from : <a href="https://tabler.io/icons" target="_blank">Here.!</a></small>
                                                     </x-slot>
                                             </div>
+                                            <div class="col-md-12 mb-3">
+                                                <x-input-block name="name" :value="$course_category->name" placeholder="Enter category name"/>
+                                            </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <x-input-toggle-block name="status" label="Make tranding!" checked="true"/>
+                                                <x-input-toggle-block name="status" label="Make tranding!" :checked="$course_category->status === 1"/>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <x-input-toggle-block name="show_at_tranding" label="Show at tranding" checked="true"/>
+                                                <x-input-toggle-block name="show_at_tranding" label="Show at tranding" :checked="$course_category->show_at_tranding === 1"/>
                                             </div>
 
 
@@ -78,7 +80,7 @@
                                         <div class="form-group">
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="ti ti-device-floppy"></i> &nbsp;
-                                                Create
+                                                Update
                                             </button>
                                         </div>
                                     </form>
