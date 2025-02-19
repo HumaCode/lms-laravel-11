@@ -54,8 +54,10 @@
                                             <table class="table table-vcenter card-table">
                                                 <thead class="text-center">
                                                     <tr>
+                                                        <th>Icon</th>
                                                         <th>Name</th>
-                                                        <th>Slug</th>
+                                                        <th>Treading</th>
+                                                        <th>Status</th>
                                                         <th>
                                                             Action
                                                         </th>
@@ -63,14 +65,28 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    {{-- @forelse ($languages as $language)
+                                                    @forelse ($categories as $category)
                                                         <tr>
-                                                            <td>{{ $language->name }}</td>
+                                                            <td><i class="{{ $category->icon }}"></i></td>
                                                             <td class="text-center">
-                                                                {{ $language->slug }}
+                                                                {{ $category->name }}
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('admin.course-languages.edit', $language->id) }}"
+                                                                @if ($category->show_at_tranding === 1)
+                                                                    <span class="badge bg-lime text-lime-fg">Yes</span>
+                                                                @else
+                                                                    <span class="badge bg-red text-red-fg">No</span>
+                                                                @endif
+                                                            </td>
+                                                            <td class="text-center">
+                                                                @if ($category->status === 1)
+                                                                    <span class="badge bg-lime text-lime-fg">Yes</span>
+                                                                @else
+                                                                    <span class="badge bg-red text-red-fg">No</span>
+                                                                @endif
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <a href="{{ route('admin.course-categories.edit', $category->id) }}"
                                                                     class="btn-sm btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
@@ -85,7 +101,7 @@
                                                                     </svg>
                                                                 </a>
 
-                                                                <a href="{{ route('admin.course-languages.destroy', $language->id) }}"
+                                                                <a href="{{ route('admin.course-categories.destroy', $category->id) }}"
                                                                     class="btn-sm text-red delete-item">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
@@ -110,12 +126,12 @@
                                                         <tr class="text-center">
                                                             <td colspan="3">No Data Available</td>
                                                         </tr>
-                                                    @endforelse --}}
+                                                    @endforelse
 
                                                 </tbody>
                                             </table>
                                             <div class="p-3">
-                                                {{-- {{ $languages->links() }} --}}
+                                                {{ $categories->links() }}
                                             </div>
                                         </div>
                                     </div>
