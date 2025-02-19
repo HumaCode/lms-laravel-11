@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li>
-                <a href="dashboard_courses.html">
+                <a href="{{ route('instructor.courses.index') }}">
                     <div class="img">
                         <img src="{{ asset('/') }}frontend/assets/images/dash_icon_2.png" alt="icon"
                             class="img-fluid w-100">
