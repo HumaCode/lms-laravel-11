@@ -11,7 +11,7 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Categories Edit
+                        Course Sub Category Edit
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -45,33 +45,35 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Course Categories Edit</h3>
+                                    <h3 class="card-title">Course Sub Category Edit</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.course-categories.update', $course_category->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.course-sub-categories.update', ['course_category' => $course_category->id, 'course_sub_category' => $course_sub_category->id]) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
 
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
-                                                <x-image-preview class="" src="{{ asset($course_category->image) }}"/>
+                                                @if ($course_sub_category->image)
+                                                    <x-image-preview class="" src="{{ asset($course_sub_category->image) }}"/>
+                                                @endif
                                                 <x-input-file-block name="image" placeholder="Enter category name"/>
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <x-input-block name="icon" :value="$course_category->icon" placeholder="Enter category name"/>
+                                                <x-input-block name="icon" :value="$course_sub_category->icon" placeholder="Enter category name"/>
                                                     <x-slot name="hint">
                                                         <small class="hint">You can get icon from : <a href="https://tabler.io/icons" target="_blank">Here.!</a></small>
                                                     </x-slot>
                                             </div>
                                             <div class="col-md-12 mb-3">
-                                                <x-input-block name="name" :value="$course_category->name" placeholder="Enter category name"/>
+                                                <x-input-block name="name" :value="$course_sub_category->name" placeholder="Enter category name"/>
                                             </div>
 
                                             <div class="col-md-6 mb-3">
-                                                <x-input-toggle-block name="status" label="Make tranding!" :checked="$course_category->status === 1"/>
+                                                <x-input-toggle-block name="status" label="Make tranding!" :checked="$course_sub_category->status === 1"/>
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                <x-input-toggle-block name="show_at_tranding" label="Show at tranding" :checked="$course_category->show_at_tranding === 1"/>
+                                                <x-input-toggle-block name="show_at_tranding" label="Show at tranding" :checked="$course_sub_category->show_at_tranding === 1"/>
                                             </div>
 
 

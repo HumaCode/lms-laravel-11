@@ -11,7 +11,7 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Categories Create
+                        Course Sub Category Create
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -45,7 +45,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Course Categories</h3>
+                                    <h3 class="card-title">Course Sub Category</h3>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('admin.course-sub-categories.store', $course_category->id) }}" method="POST" enctype="multipart/form-data">
