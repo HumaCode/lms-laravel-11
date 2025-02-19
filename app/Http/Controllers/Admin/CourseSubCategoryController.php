@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\FileUpload;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CourseSubCategoriStoreRequest;
 use App\Models\CourseCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class CourseSubCategoryController extends Controller
 {
+    use FileUpload;
+
     /**
      * Display a listing of the resource.
      */
@@ -19,17 +25,35 @@ class CourseSubCategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(CourseCategory $course_category)
     {
-        //
+        return view('admin.course.course-sub-category.create', compact('course_category'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CourseSubCategoriStoreRequest $request, CourseCategory $course_category)
     {
-        //
+
+        $category = new CourseCategory();
+
+        if ($request->hasFile('image')) {
+            $imagePath = $this->uploadFile($request->file('image'));
+            $category->image                = $imagePath;
+        }
+
+        $category->name                 = $request->name;
+        $category->icon                 = $request->icon;
+        $category->slug                 = Str::slug($request->name);
+        $category->parent_id            = $course_category->id;
+        $category->show_at_tranding     = $request->show_at_tranding ?? 0;
+        $category->status               = $request->status ?? 0;
+        $category->save();
+
+        notyf()->success('Created Successfully..');
+
+        return to_route('admin.course-sub-categories.index', $course_category->id);
     }
 
     /**

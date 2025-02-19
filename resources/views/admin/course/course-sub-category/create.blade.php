@@ -48,7 +48,7 @@
                                     <h3 class="card-title">Course Categories</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('admin.course-categories.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.course-sub-categories.store', $course_category->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
 
                                         <div class="row">
