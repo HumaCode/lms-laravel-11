@@ -11,7 +11,7 @@
                         Course Manajement
                     </div>
                     <h2 class="page-title">
-                        Course Categories
+                        Course Sub Category of ({{ $course_category->name }})
                     </h2>
                 </div>
                 <!-- Page title actions -->
@@ -46,7 +46,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Course Categories</h3>
+                                    <h3 class="card-title">Course Sub Category</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="card">
@@ -65,7 +65,7 @@
                                                 </thead>
                                                 <tbody>
 
-                                                    @forelse ($categories as $category)
+                                                    {{--  @forelse ($categories as $category)
                                                         <tr>
                                                             <td class="text-center">
                                                                 <i class="{{ $category->icon }}"></i>
@@ -88,7 +88,7 @@
                                                                 @endif
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('admin.course-sub-categories.index', $category->id) }}"
+                                                                <a href="{{ route('admin.course-categories.edit', $category->id) }}"
                                                                     class="btn-sm btn-warning text-warning">
                                                                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-list-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3.5 5.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 11.5l1.5 1.5l2.5 -2.5" /><path d="M3.5 17.5l1.5 1.5l2.5 -2.5" /><path d="M11 6l9 0" /><path d="M11 12l9 0" /><path d="M11 18l9 0" /></svg>
                                                                 </a>
@@ -135,12 +135,12 @@
                                                         <tr class="text-center">
                                                             <td colspan="5">No Data Available</td>
                                                         </tr>
-                                                    @endforelse
+                                                    @endforelse  --}}
 
                                                 </tbody>
                                             </table>
                                             <div class="p-3">
-                                                {{ $categories->links() }}
+                                                {{--  {{ $categories->links() }}  --}}
                                             </div>
                                         </div>
                                     </div>
