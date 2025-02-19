@@ -20,7 +20,7 @@ class CourseCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.course.course-category.create');
     }
 
     /**
