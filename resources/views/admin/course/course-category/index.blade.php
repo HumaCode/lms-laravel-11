@@ -67,7 +67,9 @@
 
                                                     @forelse ($categories as $category)
                                                         <tr>
-                                                            <td><i class="{{ $category->icon }}"></i></td>
+                                                            <td class="text-center">
+                                                                <i class="{{ $category->icon }}"></i>
+                                                            </td>
                                                             <td class="text-center">
                                                                 {{ $category->name }}
                                                             </td>

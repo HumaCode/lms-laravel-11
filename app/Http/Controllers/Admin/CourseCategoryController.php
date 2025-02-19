@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\FileUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CourseCategoriStoreRequest;
+use App\Http\Requests\Admin\CourseCategoriUpdateRequest;
 use App\Models\CourseCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -70,9 +71,25 @@ class CourseCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CourseCategoriUpdateRequest $request, CourseCategory $course_category)
     {
-        //
+        if ($request->hasFile('image')) {
+            $imagePath = $this->uploadFile($request->file('image'));
+            $this->deleteFile($course_category->image);
+
+            $course_category->image                = $imagePath;
+        }
+
+        $course_category->name                 = $request->name;
+        $course_category->icon                 = $request->icon;
+        $course_category->slug                 = Str::slug($request->name);
+        $course_category->show_at_tranding     = $request->show_at_tranding ?? 0;
+        $course_category->status               = $request->status ?? 0;
+        $course_category->save();
+
+        notyf()->success('Updated Successfully..');
+
+        return to_route('admin.course-categories.index');
     }
 
     /**
