@@ -4,7 +4,7 @@
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
 
-            <form action="#" class="more_info_form">
+            <form action="#" class="more_info_form course-form">
                 @csrf
 
                 <input type="hidden" name="id" value="{{ request()?->id }}">

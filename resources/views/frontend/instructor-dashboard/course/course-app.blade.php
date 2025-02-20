@@ -39,25 +39,16 @@
                         <div class="dashboard_add_courses">
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-home" type="button" role="tab"
-                                        aria-controls="pills-home" aria-selected="false" tabindex="-1">Basic Infos</button>
+                                    <button type="button" class="nav-link active course-tab" data-step="1">Basic Infos</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-profile" type="button" role="tab"
-                                        aria-controls="pills-profile" aria-selected="false" tabindex="-1">More
-                                        Infos</button>
+                                    <button type="button" class="nav-link course-tab" data-step="2">More Infos</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link " id="pills-contact-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-contact" type="button" role="tab"
-                                        aria-controls="pills-contact" aria-selected="true">Course Contents</button>
+                                    <button type="button" class="nav-link course-tab" data-step="3">Course Contents</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-contact-tab2" data-bs-toggle="pill"
-                                        data-bs-target="#pills-contact2" type="button" role="tab"
-                                        aria-controls="pills-contact2" aria-selected="false" tabindex="-1">Finish</button>
+                                    <button class="nav-link course-tab" data-step="4">Finish</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent" data-select2-id="select2-data-pills-tabContent">
