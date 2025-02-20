@@ -3,11 +3,12 @@
 @section('contest')
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
-            <form action="{{ route('instructor.courses.store-basic-info') }}" method="POST" class="basic_info_form" enctype="multipart/form-data">
+            <form action="{{ route('instructor.courses.store-basic-info') }}" method="POST" class="basic_info_update_form" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="current_step" value="1">
                 <input type="hidden" name="next_step" value="2">
+                <input type="hidden" name="id" value="{{ $course->id }}">
 
                 <div class="row">
                     <div class="col-xl-12">
