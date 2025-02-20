@@ -39,16 +39,16 @@
                         <div class="dashboard_add_courses">
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button type="button" class="nav-link active course-tab" data-step="1">Basic Infos</button>
+                                    <button type="button" class="nav-link course-tab {{ request('step') == 1 ? 'active' : '' }}" data-step="1">Basic Infos</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button type="button" class="nav-link course-tab" data-step="2">More Infos</button>
+                                    <button type="button" class="nav-link course-tab {{ request('step') == 2 ? 'active' : '' }}" data-step="2">More Infos</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button type="button" class="nav-link course-tab" data-step="3">Course Contents</button>
+                                    <button type="button" class="nav-link course-tab {{ request('step') == 3 ? 'active' : '' }}" data-step="3">Course Contents</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link course-tab" data-step="4">Finish</button>
+                                    <button class="nav-link course-tab {{ request('step') == 4 ? 'active' : '' }}" data-step="4">Finish</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent" data-select2-id="select2-data-pills-tabContent">
