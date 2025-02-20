@@ -47,8 +47,26 @@ class CourseController extends Controller
         Session::put('course_created_id', $course->id);
 
         return response([
-            'status' => 'success',
-            'message' => 'Created successfully'
+            'status'    => 'success',
+            'message'   => 'Created successfully',
+            'redirect'  => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
         ]);
+    }
+
+    public function edit(Request $request)
+    {
+        switch ($request->step) {
+            case '1':
+                # code...
+                break;
+            case '2':
+                    return view('frontend.instructor-dashboard.course.more-info');
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
     }
 }
