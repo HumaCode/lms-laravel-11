@@ -79,6 +79,31 @@ class CourseController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        switch ($request->current_step) {
+            case '1':
+                # code...
+                break;
+            case '2':
+                    $course = Course::findOrFail($request->id);
+                    $course->capacity               = $request->capacity;
+                    $course->duration               = $request->duration;
+                    $course->qna                    = $request->qna ? 1 : 0;
+                    $course->certificate            = $request->certificate ? 1 : 0;
+                    $course->category_id            = $request->category;
+                    $course->course_level_id        = $request->level;
+                    $course->course_language_id     = $request->language;
+                    $course->save();
+
+                    return response([
+                        'status'    => 'success',
+                        'message'   => 'Updated successfully',
+                        'redirect'  => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
+                    ]);
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 }
