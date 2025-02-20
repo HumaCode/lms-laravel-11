@@ -76,4 +76,9 @@ class CourseController extends Controller
         }
 
     }
+
+    public function update(Request $request)
+    {
+        dd($request->all());
+    }
 }

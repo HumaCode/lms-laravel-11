@@ -4,47 +4,42 @@
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
 
-            <form action="#" data-select2-id="select2-data-11-y3mg">
-                <div class="row" data-select2-id="select2-data-10-2dwf">
+            <form action="#" class="more_info_form">
+                @csrf
+
+                <input type="hidden" name="id" value="{{ request()?->id }}">
+
+                <div class="row" >
                     <div class="col-xl-6">
                         <div class="add_course_more_info_input">
-                            <label for="#">Capacity</label>
-                            <input type="text" placeholder="Capacity">
+                            <label for="capacity">Capacity</label>
+                            <input type="text" placeholder="Capacity" name="capacity" id="capacity">
                             <p>leave blank for unlimited</p>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_more_info_input">
-                            <label for="#">Course Duration (Minutes)*</label>
-                            <input type="text" placeholder="300">
+                            <label for="duration">Course Duration (Minutes)*</label>
+                            <input type="text" placeholder="300" name="duration" id="duration">
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_more_info_checkbox">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" name="qna" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">Q&amp;A</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                <input class="form-check-input" type="checkbox" name="certificate" value="" id="flexCheckDefault2">
                                 <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                                <label class="form-check-label" for="flexCheckDefault3">Patner
-                                    instructor</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                                <label class="form-check-label" for="flexCheckDefault4">Others</label>
                             </div>
                         </div>
                     </div>
                     <div class="col-12" data-select2-id="select2-data-9-zhyi">
                         <div class="add_course_more_info_input" data-select2-id="select2-data-8-78yb">
-                            <label for="category_id">Category *</label>
-                            <select class="select_2 select2-hidden-accessible"
-                                tabindex="-1" aria-hidden="true" name="category_id" id="category_id">
+                            <label for="category">Category *</label>
+                            <select class="select_2"
+                                tabindex="-1" aria-hidden="true" name="category" id="category">
 
                                 <option selected disabled>Please Select </option>
 
@@ -70,8 +65,7 @@
 
                             @foreach ($levels as $level)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="{{ $level->name }}"
-                                    id="id-{{ $level->id }}">
+                                    <input class="form-check-input" value="{{ $level->id }}" type="radio" name="level" id="id-{{ $level->id }}">
                                     <label class="form-check-label" for="id-{{ $level->id }}">
                                         {{ $level->name }}
                                     </label>
@@ -87,8 +81,7 @@
                             @foreach ($languages as $language)
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="{{ $language->name }}"
-                                    id="lang-{{ $language->id }}" >
+                                    <input class="form-check-input" value="{{ $language->id }}" type="radio" name="language" id="lang-{{ $language->id }}" >
                                     <label class="form-check-label" for="lang-{{ $language->id }}">
                                         {{ $language->name }}
                                     </label>
