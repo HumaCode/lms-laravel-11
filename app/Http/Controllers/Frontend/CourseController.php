@@ -21,7 +21,9 @@ class CourseController extends Controller
 
     public function index()
     {
-        return view('frontend.instructor-dashboard.course.index');
+        $courses = Course::all();
+
+        return view('frontend.instructor-dashboard.course.index', compact('courses'));
     }
 
     public function create()
@@ -60,7 +62,10 @@ class CourseController extends Controller
     {
         switch ($request->step) {
             case '1':
-                # code...
+                $course = Course::findOrFail($request->id);
+
+                return view('frontend.instructor-dashboard.course.edit', compact('course'));
+
                 break;
             case '2':
                     $categories     = CourseCategory::where('status', 1)->get();
