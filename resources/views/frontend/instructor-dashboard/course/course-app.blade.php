@@ -2,9 +2,7 @@
 
 
 @section('content')
-    <!--===========================
-                                                                                        BREADCRUMB START
-                                                                                    ============================-->
+
     <section class="wsus__breadcrumb" style="background: url({{ asset('/') }}frontend/assets/images/breadcrumb_bg.jpg);">
         <div class="wsus__breadcrumb_overlay">
             <div class="container">
@@ -73,3 +71,8 @@
         </div>
     </section>
 @endsection
+
+
+@push('header_scripts')
+    @vite(['resources/js/frontend/course.js'])
+@endpush

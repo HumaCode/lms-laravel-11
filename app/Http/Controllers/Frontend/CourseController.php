@@ -16,4 +16,9 @@ class CourseController extends Controller
     {
         return view('frontend.instructor-dashboard.course.create');
     }
+
+    public function storeBasicInfo()
+    {
+        return view('frontend.instructor-dashboard.course.create');
+    }
 }

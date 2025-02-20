@@ -1,0 +1,25 @@
+
+
+$('.basic_info_form').on('submit', function(e) {
+    e.preventDefault();
+
+    let formData = $(this).serialize();
+
+    $.ajax({
+        method: "POST",
+        url: "",
+        data: formData,
+        beforeSend: function() {
+
+        },
+        success: function(data) {
+
+        },
+        error: function(xhr, status, error) {
+
+        },
+        complete: function() {
+
+        }
+    })
+});

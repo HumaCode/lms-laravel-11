@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/responsive.css">
 
     @vite(['resources/css/frontend.css'])
+
+    @stack('header_scripts')
 </head>
 
 <body class="home_3">
@@ -103,6 +105,9 @@
 
     <!--main/custom js-->
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
+
+
+    @stack('scripts')
 
 </body>
 
