@@ -6,6 +6,9 @@ use App\FileUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\CourseBasicInfoCreateRequest;
 use App\Models\Course;
+use App\Models\CourseCategory;
+use App\Models\CourseLanguage;
+use App\Models\CourseLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -60,7 +63,11 @@ class CourseController extends Controller
                 # code...
                 break;
             case '2':
-                    return view('frontend.instructor-dashboard.course.more-info');
+                    $categories     = CourseCategory::where('status', 1)->get();
+                    $levels         = CourseLevel::get();
+                    $languages      = CourseLanguage::get();
+
+                    return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages'));
                 break;
 
             default:

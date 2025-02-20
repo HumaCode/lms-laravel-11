@@ -3,6 +3,7 @@
 @section('contest')
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
+
             <form action="#" data-select2-id="select2-data-11-y3mg">
                 <div class="row" data-select2-id="select2-data-10-2dwf">
                     <div class="col-xl-6">
@@ -41,98 +42,59 @@
                     </div>
                     <div class="col-12" data-select2-id="select2-data-9-zhyi">
                         <div class="add_course_more_info_input" data-select2-id="select2-data-8-78yb">
-                            <label for="#">Category *</label>
-                            <select class="select_2 select2-hidden-accessible" data-select2-id="select2-data-1-0ip4"
-                                tabindex="-1" aria-hidden="true">
-                                <option value="" data-select2-id="select2-data-3-0uhg">
-                                    Please Select </option>
-                                <option value="" data-select2-id="select2-data-19-a884">
-                                    Red</option>
-                                <option value="" data-select2-id="select2-data-20-cozs">
-                                    Black</option>
-                                <option value="" data-select2-id="select2-data-21-qfw5">
-                                    Orange</option>
-                                <option value="" data-select2-id="select2-data-22-g078">
-                                    Rose Gold</option>
-                                <option value="" data-select2-id="select2-data-23-puvk">
-                                    Pink</option>
-                            </select><span
-                                class="select2 select2-container select2-container--default select2-container--above"
-                                dir="ltr" data-select2-id="select2-data-2-1ewe" style="width: auto;"><span
-                                    class="selection"><span class="select2-selection select2-selection--single"
-                                        role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0"
-                                        aria-disabled="false" aria-labelledby="select2-g9xk-container"
-                                        aria-controls="select2-g9xk-container"><span class="select2-selection__rendered"
-                                            id="select2-g9xk-container" role="textbox" aria-readonly="true"
-                                            title="Pink">Pink</span><span class="select2-selection__arrow"
-                                            role="presentation"><b role="presentation"></b></span></span></span><span
-                                    class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            <label for="category_id">Category *</label>
+                            <select class="select_2 select2-hidden-accessible"
+                                tabindex="-1" aria-hidden="true" name="category_id" id="category_id">
+
+                                <option selected disabled>Please Select </option>
+
+                                @foreach ($categories as $category)
+                                    @if ($category->subCategories->isNotEmpty())
+                                        <optgroup label="{{ $category->name }}">
+                                            @foreach ($category->subCategories as $subCategory)
+                                                <option value="{{ $subCategory->id }}">
+                                                    {{ $subCategory->name }}
+                                                </option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endif
+                                @endforeach
+
+                            </select>
                         </div>
                     </div>
+
                     <div class="col-xl-4">
                         <div class="add_course_more_info_radio_box">
                             <h3>Level</h3>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1" checked="">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    Beginner
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2">
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    Intermediate
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault3">
-                                <label class="form-check-label" for="flexRadioDefault3">
-                                    Expert
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault4">
-                                <label class="form-check-label" for="flexRadioDefault4">
-                                    Expert
-                                </label>
-                            </div>
+
+                            @foreach ($levels as $level)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ $level->name }}"
+                                    id="id-{{ $level->id }}">
+                                    <label class="form-check-label" for="id-{{ $level->id }}">
+                                        {{ $level->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+
                         </div>
                     </div>
                     <div class="col-xl-4">
                         <div class="add_course_more_info_radio_box">
                             <h3>Language</h3>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                    id="flexRadioDefault11" checked="">
-                                <label class="form-check-label" for="flexRadioDefault11">
-                                    English
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                    id="flexRadioDefault12">
-                                <label class="form-check-label" for="flexRadioDefault12">
-                                    Hindi
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                    id="flexRadioDefault13">
-                                <label class="form-check-label" for="flexRadioDefault13">
-                                    Arabic
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1"
-                                    id="flexRadioDefault14">
-                                <label class="form-check-label" for="flexRadioDefault14">
-                                    Francais
-                                </label>
-                            </div>
+
+                            @foreach ($languages as $language)
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="{{ $language->name }}"
+                                    id="lang-{{ $language->id }}" >
+                                    <label class="form-check-label" for="lang-{{ $language->id }}">
+                                        {{ $language->name }}
+                                    </label>
+                                </div>
+
+                            @endforeach
 
                         </div>
                     </div>
@@ -141,6 +103,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 @endsection
