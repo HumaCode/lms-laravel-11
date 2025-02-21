@@ -114,6 +114,9 @@
     {{-- notyf --}}
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
+    {{--  lfm  --}}
+    <script src="{{ asset('/') }}vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+
 
     @stack('scripts')
 
