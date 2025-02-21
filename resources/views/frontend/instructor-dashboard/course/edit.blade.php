@@ -45,24 +45,22 @@
                     <div class="col-xl-6">
                         <div class="add_course_basic_info_imput upload_source">
                             <label for="demo_video_source">Path</label>
-                            <input type="file" name="demo_video_source" id="demo_video_source">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                        <i class="fa fa-picture-o"></i> Choose
+                                    </a>
+                                </span>
+                                <input id="thumbnail" class="form-control source_input" type="text" name="file" value="{{ $course->demo_video_source }}">
+                            </div>
                         </div>
+
                         <div class="add_course_basic_info_imput external_source d-none">
-                            <label for="demo_video_source">Path</label>
-                            <input type="text" name="demo_video_source" id="demo_video_source">
+                            <label for="url">Path</label>
+                            <input type="text" name="url" id="url" class="source_input" value="{{ $course->demo_video_source }}">
                         </div>
 
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                    <i class="fa fa-picture-o"></i> Choose
-                                </a>
-                            </span>
-                            <input id="thumbnail" class="form-control" type="text" name="filepath">
-                        </div>
-                        <div id="holder" style="margin-top:15px;max-height:100px;"></div>
-
-                        </div>
+                    </div>
                     <div class="col-xl-6">
                         <div class="add_course_basic_info_imput">
                             <label for="price">Price *</label>
