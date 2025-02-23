@@ -4,7 +4,9 @@
     <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
         <div class="add_course_content">
             <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
-                <a class="common_btn" href="#">Add New Chapter</a>
+                <button type="button" class="common_btn dynamic-modal-btn">Add
+                    New
+                    Chapter</button>
                 <a class="common_btn" href="#">Short Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">

@@ -1,6 +1,6 @@
-const base_url =  $(`meta[name="base_url"]`).attr('content');
-const basic_info_url =  base_url + '/instructor/courses/create';
-const update_url =  base_url + '/instructor/courses/update';
+const base_url = $(`meta[name="base_url"]`).attr('content');
+const basic_info_url = base_url + '/instructor/courses/create';
+const update_url = base_url + '/instructor/courses/update';
 
 var notyf = new Notyf({
     duration: 5000,
@@ -8,7 +8,7 @@ var notyf = new Notyf({
 });
 
 // course tab navigation
-$('.course-tab').on('click', function(e) {
+$('.course-tab').on('click', function (e) {
     e.preventDefault();
 
     let step = $(this).data('step');
@@ -16,7 +16,7 @@ $('.course-tab').on('click', function(e) {
     $('.course-form').trigger('submit');
 });
 
-$('.basic_info_form').on('submit', function(e) {
+$('.basic_info_form').on('submit', function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
@@ -27,27 +27,27 @@ $('.basic_info_form').on('submit', function(e) {
         data: formData,
         contentType: false,
         processData: false,
-        beforeSend: function() {
+        beforeSend: function () {
 
         },
-        success: function(data) {
+        success: function (data) {
             if (data.status == 'success') {
                 window.location.href = data.redirect
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             let errors = xhr.responseJSON.errors;
-            $.each(errors, function(key, value) {
+            $.each(errors, function (key, value) {
                 notyf.error(value[0]);
             })
         },
-        complete: function() {
+        complete: function () {
 
         }
     })
 });
 
-$('.basic_info_update_form').on('submit', function(e) {
+$('.basic_info_update_form').on('submit', function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
@@ -58,27 +58,27 @@ $('.basic_info_update_form').on('submit', function(e) {
         data: formData,
         contentType: false,
         processData: false,
-        beforeSend: function() {
+        beforeSend: function () {
 
         },
-        success: function(data) {
+        success: function (data) {
             if (data.status == 'success') {
                 window.location.href = data.redirect
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             let errors = xhr.responseJSON.errors;
-            $.each(errors, function(key, value) {
+            $.each(errors, function (key, value) {
                 notyf.error(value[0]);
             })
         },
-        complete: function() {
+        complete: function () {
 
         }
     })
 });
 
-$('.more_info_form').on('submit', function(e) {
+$('.more_info_form').on('submit', function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
@@ -89,30 +89,30 @@ $('.more_info_form').on('submit', function(e) {
         data: formData,
         contentType: false,
         processData: false,
-        beforeSend: function() {
+        beforeSend: function () {
 
         },
-        success: function(data) {
+        success: function (data) {
             if (data.status == 'success') {
                 window.location.href = data.redirect
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             let errors = xhr.responseJSON.errors;
-            $.each(errors, function(key, value) {
+            $.each(errors, function (key, value) {
                 notyf.error(value[0]);
             })
         },
-        complete: function() {
+        complete: function () {
 
         }
     })
 });
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     // show hide path input depending source
-    $('.storage').on('change', function() {
+    $('.storage').on('change', function () {
         let value = $(this).val();
         $('.source_input').val('');
 
@@ -120,9 +120,16 @@ $(document).ready(function() {
         if (value === 'upload') {
             $('.upload_source').removeClass('d-none');
             $('.external_source').addClass('d-none');
-        }else {
+        } else {
             $('.upload_source').addClass('d-none');
             $('.external_source').removeClass('d-none');
         }
     });
+})
+
+// course content
+$('.dynamic-modal-btn').on('click', function (e) {
+    e.preventDefault();
+
+    $('#dynamic-modal').modal('show');
 })
