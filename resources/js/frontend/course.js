@@ -7,6 +7,13 @@ var notyf = new Notyf({
     dismissible: true
 });
 
+var loader = `
+    <div class="modal-content text-center" style="display: inline;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>`;
+
 // course tab navigation
 $('.course-tab').on('click', function (e) {
     e.preventDefault();
@@ -132,4 +139,19 @@ $('.dynamic-modal-btn').on('click', function (e) {
     e.preventDefault();
 
     $('#dynamic-modal').modal('show');
+
+    $.ajax({
+        method: 'GET',
+        url: base_url + '/instructor/courses-content/create-chapter',
+        data: {},
+        beforeSend: function () {
+            $('.dynamic-modal-content').html(loader);
+        },
+        success: function (data) {
+            $('.dynamic-modal-content').html(data);
+        },
+        error: function (xhr, status, error) {
+
+        }
+    })
 })
