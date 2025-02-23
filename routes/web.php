@@ -40,7 +40,8 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
     Route::post('/courses/update', [CourseController::class, 'update'])->name('courses.update');
 
     // course content
-    Route::get('/courses-content/create-chapter', [CourseContentController::class, 'createChapterModel'])->name('courses-content.create-chapter');
+    Route::get('/courses-content/{course}/create-chapter', [CourseContentController::class, 'createChapterModel'])->name('courses-content.create-chapter');
+    Route::post('/courses-content/{course}/create-chapter', [CourseContentController::class, 'storeChapterModel'])->name('courses-content.store-chapter');
 
     // laravel file manager route
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

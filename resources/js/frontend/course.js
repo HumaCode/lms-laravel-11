@@ -140,9 +140,11 @@ $('.dynamic-modal-btn').on('click', function (e) {
 
     $('#dynamic-modal').modal('show');
 
+    let course_id = $(this).data('id');
+
     $.ajax({
         method: 'GET',
-        url: base_url + '/instructor/courses-content/create-chapter',
+        url: base_url + '/instructor/courses-content/:id/create-chapter'.replace(':id', course_id),
         data: {},
         beforeSend: function () {
             $('.dynamic-modal-content').html(loader);
