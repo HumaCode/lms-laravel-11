@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\CourseBasicInfoCreateRequest;
 use App\Models\Course;
 use App\Models\CourseCategory;
+use App\Models\CourseChapter;
 use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
 use Illuminate\Http\Request;
@@ -78,8 +79,9 @@ class CourseController extends Controller
 
             case '3':
                 $courseId = $request->id;
+                $chapters = CourseChapter::where(['course_id' => $courseId, 'instructor_id' => Auth::user()->id])->get();
 
-                return view('frontend.instructor-dashboard.course.course-content', compact('courseId'));
+                return view('frontend.instructor-dashboard.course.course-content', compact('courseId', 'chapters'));
                 break;
 
             default:
