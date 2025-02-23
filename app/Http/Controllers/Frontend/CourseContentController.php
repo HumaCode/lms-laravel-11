@@ -29,4 +29,12 @@ class CourseContentController extends Controller
 
         return redirect()->back();
     }
+
+    public function createLesson(Request $request)
+    {
+        $courseId   = $request->course_id;
+        $chapterId  = $request->chapter_id;
+
+        return view('frontend.instructor-dashboard.course.partials.chapter-lesson-modal', compact('courseId', 'chapterId'))->render();
+    }
 }
