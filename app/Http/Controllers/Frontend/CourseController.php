@@ -76,6 +76,10 @@ class CourseController extends Controller
                 return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages', 'course'));
                 break;
 
+            case '3':
+                return view('frontend.instructor-dashboard.course.course-content');
+                break;
+
             default:
                 # code...
                 break;
