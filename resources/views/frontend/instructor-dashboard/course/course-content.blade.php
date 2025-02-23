@@ -2,6 +2,14 @@
 
 @section('contest')
     <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+        <form action="" class="course-form more_info_form">
+            @csrf
+
+            <input type="hidden" name="id" value="{{ request()?->id }}">
+            <input type="hidden" name="current_step" value="3">
+            <input type="hidden" name="next_step" value="4">
+        </form>
+
         <div class="add_course_content">
             <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
                 <button type="button" class="common_btn dynamic-modal-btn" data-id="{{ $courseId }}">Add
@@ -72,7 +80,8 @@
                                 <li>
                                     <span>Aut autem dolorem debitis mollitia.</span>
                                     <div class="add_course_content_action_btn">
-                                        <a class="edit" href="#"><i class="far fa-edit" aria-hidden="true"></i></a>
+                                        <a class="edit" href="#"><i class="far fa-edit"
+                                                aria-hidden="true"></i></a>
                                         <a class="del" href="#"><i class="fas fa-trash-alt"
                                                 aria-hidden="true"></i></a>
                                         <a class="arrow" href="#"><i class="fas fa-arrows-alt"
