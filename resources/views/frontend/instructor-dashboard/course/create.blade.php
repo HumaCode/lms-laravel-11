@@ -3,7 +3,8 @@
 @section('contest')
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
-            <form action="{{ route('instructor.courses.store-basic-info') }}" method="POST" class="basic_info_form course-form" enctype="multipart/form-data">
+            <form action="{{ route('instructor.courses.store-basic-info') }}" method="POST"
+                class="basic_info_form course-form" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="current_step" value="1">
@@ -44,12 +45,22 @@
                     <div class="col-xl-6">
                         <div class="add_course_basic_info_imput upload_source">
                             <label for="demo_video_source">Path</label>
-                            <input type="file" name="demo_video_source" id="demo_video_source">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                        <i class="fa fa-picture-o"></i> Choose
+                                    </a>
+                                </span>
+                                <input id="thumbnail" class="form-control source_input" type="text" name="file"
+                                    value="">
+                            </div>
                         </div>
+
                         <div class="add_course_basic_info_imput external_source d-none">
-                            <label for="demo_video_source">Path</label>
-                            <input type="text" name="demo_video_source" id="demo_video_source">
+                            <label for="url">Path</label>
+                            <input type="text" name="url" id="url" class="source_input" value="">
                         </div>
+
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_basic_info_imput">
@@ -76,3 +87,9 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#lfm').filemanager('file');
+    </script>
+@endpush
