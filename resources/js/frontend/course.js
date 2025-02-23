@@ -2,7 +2,10 @@ const base_url = $(`meta[name="base_url"]`).attr('content');
 const basic_info_url = base_url + '/instructor/courses/create';
 const update_url = base_url + '/instructor/courses/update';
 
-
+var notyf = new Notyf({
+    duration: 5000,
+    dismissible: true
+});
 
 var loader = `
     <div class="modal-content text-center" style="display: inline;">
