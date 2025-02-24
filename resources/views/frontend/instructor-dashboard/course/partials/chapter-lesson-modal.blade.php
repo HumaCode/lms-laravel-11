@@ -1,9 +1,9 @@
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Chapter</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ @$editMode == true ?  'Update Chapter' : 'Create Chapter'}} </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <form action="{{ route('instructor.courses-content.store-lesson') }}" method="POST">
+    <form action="{{ @$editMode == true ? route('instructor.courses-content.update-lesson', @$lesson?->id) : route('instructor.courses-content.store-lesson') }}" method="POST">
         @csrf
 
         <input type="hidden" name="course_id" value="{{ $courseId }}">
@@ -65,9 +65,9 @@
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <div class="add_course_basic_info_imput ">
-                            <label for="duration" class="form-label mb-2">Duration</label>
-                            <input type="text" name="duration" id="duration" required value="{{ @$lession?->duration }}">
+                        <div class="add_course_basic_info_imput">
+                            <label for="duration" class="mb-2">Duration</label>
+                            <input type="text" name="duration" id="duration" value="{{ @$lesson?->duration }}" required>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
 
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">{{ @$editMode == true ?  'Update' : 'Create'}} </button>
         </div>
     </form>
 </div>
