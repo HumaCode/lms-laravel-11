@@ -80,4 +80,14 @@ class CourseContentController extends Controller
 
         return redirect()->back();
     }
+
+    public function editLesson(Request $request)
+    {
+        $courseId   = $request->course_id;
+        $chapterId  = $request->chapter_id;
+        $lessonId   = $request->lesson_id;
+        $lesson     = CourseChapterLession::where(['chapter_id' => $chapterId, 'course_id' => $courseId, 'instructor_id' => Auth::user()->id])->first();
+
+        return view('frontend.instructor-dashboard.course.partials.chapter-lesson-modal', compact('courseId', 'chapterId', 'lessonId', 'lesson'))->render();
+    }
 }
