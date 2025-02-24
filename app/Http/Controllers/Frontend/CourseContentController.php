@@ -57,6 +57,24 @@ class CourseContentController extends Controller
         return redirect()->back();
     }
 
+    public function destroyChapterModel($id)
+    {
+        try {
+            // delete relation
+            $chapter = CourseChapter::findOrFail($id);
+            $chapter->delete();
+
+            notyf()->success('Deleted Successfully ...');
+            return response([
+                'message' => 'Deleted Successfully ...',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'message' => 'Something went wrong! ...',
+            ], 500);
+        }
+    }
+
     public function createLesson(Request $request)
     {
         $courseId   = $request->course_id;

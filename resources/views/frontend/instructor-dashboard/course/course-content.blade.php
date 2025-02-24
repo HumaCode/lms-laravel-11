@@ -48,7 +48,9 @@
                                 </div>
                                 <a class="edit edit_chapter" href="#" data-course-id="{{ $chapter->course_id }}"
                                     data-chapter-id="{{ $chapter->id }}"><i class="far fa-edit" aria-hidden="true"></i></a>
-                                <a class="del" href="#"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
+                                <a class="del delete-item"
+                                    href="{{ route('instructor.courses-content.destroy-chapter', $chapter->id) }}"><i
+                                        class="fas fa-trash-alt" aria-hidden="true"></i></a>
                             </div>
                         </h2>
                         <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse "
