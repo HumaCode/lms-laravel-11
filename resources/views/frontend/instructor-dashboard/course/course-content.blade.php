@@ -50,7 +50,7 @@
                                 <a class="del" href="#"><i class="fas fa-trash-alt" aria-hidden="true"></i></a>
                             </div>
                         </h2>
-                        <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse show"
+                        <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse "
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="item_list">

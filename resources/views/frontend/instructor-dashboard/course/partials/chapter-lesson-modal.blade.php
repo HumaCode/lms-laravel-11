@@ -3,8 +3,11 @@
         <h5 class="modal-title" id="exampleModalLabel">Create Chapter</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <form action="" method="POST">
+    <form action="{{ route('instructor.courses-content.store-lesson') }}" method="POST">
         @csrf
+
+        <input type="hidden" name="course_id" value="{{ $courseId }}">
+        <input type="hidden" name="chapter_id" value="{{ $chapterId }}">
 
         <div class="modal-body">
 
@@ -16,8 +19,8 @@
 
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label for="source" class="form-label">Source</label>
-                        <select name="" id="" class="form-control storage">
+                        <label for="storage" class="form-label">Source</label>
+                        <select name="storage" id="storage" class="form-control storage">
                             <option disabled selected>-- Select --</option>
 
                             @foreach (config('course.video_sources') as $source => $name)
@@ -49,8 +52,8 @@
 
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label for="source" class="form-label">File Type</label>
-                        <select name="" id="" class="form-control">
+                        <label for="file_type" class="form-label">File Type</label>
+                        <select name="file_type" id="file_type" class="form-control">
                             <option disabled selected>-- Select --</option>
 
                             @foreach (config('course.file_types') as $source => $name)
@@ -71,20 +74,20 @@
 
                 <div class="col-md-6">
                     <div class="add_course_more_info_checkbox">
-                        <div class="form-check" style="width: 30%">
-                            <input class="form-check-input" type="checkbox" name="" value="1"  id="preview">
-                            <label class="form-check-label" for="flexCheckDefault">Is Preview</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="is_preview" value="1"  id="preview">
+                            <label class="form-check-label" for="preview">Is Preview</label>
                         </div>
-                        <div class="form-check" style="width: 30%">
-                            <input class="form-check-input" type="checkbox" name="" value="1"  id="downloadable">
-                            <label class="form-check-label" for="flexCheckDefault">Downloadable</label>
+                        <div class="form-check" >
+                            <input class="form-check-input" type="checkbox" name="downloadable" value="1"  id="downloadable">
+                            <label class="form-check-label" for="downloadable">Downloadable</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="add_course_basic_info_imput mb-3">
                     <label for="title">Descripton</label>
-                    <textarea name="description" id="description" rows="5" ></textarea>
+                    <textarea name="description" id="description" rows="5" required></textarea>
                 </div>
 
             </div>
