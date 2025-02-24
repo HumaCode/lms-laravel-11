@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
     // course content
     Route::get('/courses-content/{course}/create-chapter', [CourseContentController::class, 'createChapterModel'])->name('courses-content.create-chapter');
     Route::post('/courses-content/{course}/create-chapter', [CourseContentController::class, 'storeChapterModel'])->name('courses-content.store-chapter');
+    Route::get('/courses-content/{course}/edit-chapter', [CourseContentController::class, 'editChapterModel'])->name('courses-content.edit-chapter');
+    Route::put('/courses-content/{course}/update-chapter', [CourseContentController::class, 'updateChapterModel'])->name('courses-content.update-chapter');
 
     // course lesson
     Route::get('/courses-content/create-lesson', [CourseContentController::class, 'createLesson'])->name('courses-content.create-lesson');

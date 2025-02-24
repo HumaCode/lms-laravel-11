@@ -158,6 +158,30 @@ $('.dynamic-modal-btn').on('click', function (e) {
     })
 })
 
+// course content
+$('.edit_chapter').on('click', function (e) {
+    e.preventDefault();
+
+    $('#dynamic-modal').modal('show');
+
+    let chapter_id = $(this).data('chapter-id');
+
+    $.ajax({
+        method: 'GET',
+        url: base_url + '/instructor/courses-content/:id/edit-chapter'.replace(':id', chapter_id),
+        data: {},
+        beforeSend: function () {
+            $('.dynamic-modal-content').html(loader);
+        },
+        success: function (data) {
+            $('.dynamic-modal-content').html(data);
+        },
+        error: function (xhr, status, error) {
+
+        }
+    })
+})
+
 $('.add_lesson').on('click', function () {
 
     $('#dynamic-modal').modal('show');

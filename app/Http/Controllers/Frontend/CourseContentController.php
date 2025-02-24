@@ -29,6 +29,31 @@ class CourseContentController extends Controller
         $chapter->order             = CourseChapter::where('course_id', $courseId)->count() + 1;
         $chapter->save();
 
+        notyf()->success('Create chapter successfully ...');
+
+        return redirect()->back();
+    }
+
+    public function editChapterModel($id)
+    {
+        $editMode   = true;
+        $chapter    = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
+
+        return view('frontend.instructor-dashboard.course.partials.course-chapter', compact('chapter', 'editMode'))->render();
+    }
+
+    public function updateChapterModel(Request $request, $id)
+    {
+        $request->validate([
+            'title'         => ['required', 'max:255'],
+        ]);
+
+        $chapter = CourseChapter::findOrFail($id);
+        $chapter->title             = $request->title;
+        $chapter->save();
+
+        notyf()->success('Edit chapter successfully ...');
+
         return redirect()->back();
     }
 
