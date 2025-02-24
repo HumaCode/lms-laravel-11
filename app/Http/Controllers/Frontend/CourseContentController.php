@@ -134,6 +134,18 @@ class CourseContentController extends Controller
 
     public function destroyLesson($id)
     {
-        dd($id);
+        try {
+            $lesson = CourseChapterLession::findOrFail($id);
+            $lesson->delete();
+
+            notyf()->success('Deleted Successfully ...');
+            return response([
+                'message' => 'Deleted Successfully ...',
+            ], 200);
+        } catch (\Throwable $th) {
+            return response([
+                'message' => 'Something went wrong! ...',
+            ], 500);
+        }
     }
 }
