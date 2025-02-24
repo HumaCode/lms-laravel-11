@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/sticky_menu.css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/animate.css">
 
+    {{-- jquery ui --}}
+    <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/jquery-ui.min.css">
+
     <link rel=" stylesheet" href="{{ asset('/') }}frontend/assets/css/spacing.css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/style.css">
     <link rel="stylesheet" href="{{ asset('/') }}frontend/assets/css/responsive.css">
@@ -115,11 +118,15 @@
     <!--wow js-->
     <script src="{{ asset('/') }}frontend/assets/js/wow.min.js"></script>
 
+    {{-- jquery ui --}}
+    <script src="{{ asset('/') }}frontend/assets/js/jquery-ui.min.js"></script>
+
     {{-- sweetalert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--main/custom js-->
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
+
 
     {{-- notyf --}}
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
