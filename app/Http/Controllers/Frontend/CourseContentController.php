@@ -191,4 +191,7 @@ class CourseContentController extends Controller
             ], 500);
         }
     }
+
+    // sort lesson
+    public function sortLesson(Request $request) {}
 }

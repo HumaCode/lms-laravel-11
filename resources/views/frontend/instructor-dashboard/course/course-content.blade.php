@@ -59,7 +59,8 @@
                                 <ul class="item_list sortable_list">
 
                                     @foreach ($chapter->lessons ?? [] as $lesson)
-                                        <li class="" data-lesson-id="{{ $lesson->id }}">
+                                        <li class="" data-lesson-id="{{ $lesson->id }}"
+                                            data-chapter-id="{{ $chapter->id }}">
                                             <span>{{ $lesson->title }}.</span>
                                             <div class="add_course_content_action_btn">
                                                 <a class="edit_lesson edit" data-lesson-id="{{ $lesson->id }}"

@@ -53,6 +53,9 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
     Route::post('/courses-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('courses-content.update-lesson');
     Route::delete('/courses-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('courses-content.destroy-lesson');
 
+    // sort chapter
+    Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson'])->name('courses-chapter.sort-lesson');
+
     // laravel file manager route
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
