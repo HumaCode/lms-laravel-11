@@ -119,7 +119,7 @@ $('.more_info_form').on('submit', function (e) {
 
 $(document).ready(function () {
     // show hide path input depending source
-    $('.storage').on('change', function () {
+    $(document).on('change', '.storage', function () {
         let value = $(this).val();
         $('.source_input').val('');
 
