@@ -55,21 +55,21 @@
                             <div class="accordion-body">
                                 <ul class="item_list">
 
-                                    @foreach ($chapter->lessons  as $lesson)
-
-                                    <li>
-                                        <span>{{ $lesson->title }}.</span>
-                                        <div class="add_course_content_action_btn">
-                                            <a class="edit_lesson edit" data-lesson-id="{{ $lesson->id }}" data-chapter-id="{{ $chapter->id }}"
-                                                data-course-id="{{ $chapter->course_id }}" href="javascript:;"><i class="far fa-edit"
-                                                    aria-hidden="true"></i></a>
-                                            <a class="del" href="#"><i class="fas fa-trash-alt"
-                                                    aria-hidden="true"></i></a>
-                                            <a class="arrow" href="#"><i class="fas fa-arrows-alt"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </li>
-
+                                    @foreach ($chapter->lessons as $lesson)
+                                        <li>
+                                            <span>{{ $lesson->title }}.</span>
+                                            <div class="add_course_content_action_btn">
+                                                <a class="edit_lesson edit" data-lesson-id="{{ $lesson->id }}"
+                                                    data-chapter-id="{{ $chapter->id }}"
+                                                    data-course-id="{{ $chapter->course_id }}" href="javascript:;"><i
+                                                        class="far fa-edit" aria-hidden="true"></i></a>
+                                                <a class="del delete-item"
+                                                    href="{{ route('instructor.courses-content.destroy-lesson', $lesson->id) }}"><i
+                                                        class="fas fa-trash-alt" aria-hidden="true"></i></a>
+                                                <a class="arrow" href="#"><i class="fas fa-arrows-alt"
+                                                        aria-hidden="true"></i></a>
+                                            </div>
+                                        </li>
                                     @endforeach
 
                                 </ul>

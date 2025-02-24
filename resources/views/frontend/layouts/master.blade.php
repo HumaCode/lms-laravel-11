@@ -115,6 +115,9 @@
     <!--wow js-->
     <script src="{{ asset('/') }}frontend/assets/js/wow.min.js"></script>
 
+    {{-- sweetalert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!--main/custom js-->
     <script src="{{ asset('/') }}frontend/assets/js/main.js"></script>
 

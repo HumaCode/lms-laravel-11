@@ -54,7 +54,7 @@ class CourseContentController extends Controller
 
         if ($request->filled('file')) {
             $rules['file'] = ['required'];
-        }else{
+        } else {
             $rules['url'] = ['required'];
         }
 
@@ -106,7 +106,7 @@ class CourseContentController extends Controller
 
         if ($request->filled('file')) {
             $rules['file'] = ['required'];
-        }else{
+        } else {
             $rules['url'] = ['required'];
         }
 
@@ -130,5 +130,10 @@ class CourseContentController extends Controller
         notyf()->success('Update lesson successfully ...');
 
         return redirect()->back();
+    }
+
+    public function destroyLesson($id)
+    {
+        dd($id);
     }
 }
