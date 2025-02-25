@@ -250,20 +250,20 @@ if ($('.sortable_list li').length) {
                 attribute: "data-lesson-id"
             });
 
-            let chapterId = ui.item.data("chapter_id");
+            let chapterId = ui.item.data("chapter-id");
 
             $.ajax({
-                nethod: 'POST',
+                method: 'POST',
                 url: base_url + `/instructor/courses-chapter/${chapterId}/sort-lesson`,
                 data: {
                     _token: csrf_token,
                     order_ids: orderIds
                 },
                 success: function (data) {
-
+                    notyf.success(data.message);
                 },
                 error: function (xhr, status, error) {
-
+                    notyf.error(error.message);
                 }
             })
         }

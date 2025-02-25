@@ -7,6 +7,7 @@ use App\Models\CourseChapter;
 use App\Models\CourseChapterLession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class CourseContentController extends Controller
@@ -193,5 +194,16 @@ class CourseContentController extends Controller
     }
 
     // sort lesson
-    public function sortLesson(Request $request) {}
+    public function sortLesson(Request $request, $id)
+    {
+        // dd($request->all());
+        $newOrders = $request->order_ids;
+        foreach ($newOrders as $key => $itemId) {
+            $lesson = CourseChapterLession::where(['chapter_id' => $id, 'id' => $itemId])->first();
+            $lesson->order = $key + 1;
+            $lesson->save();
+        }
+
+        return response(['status' => 'success', 'message' => 'Updated successfully ...']);
+    }
 }
