@@ -268,4 +268,27 @@ if ($('.sortable_list li').length) {
             })
         }
     });
-}
+};
+
+$('.short_chapter_btn').on('click', function () {
+    $('#dynamic-modal').modal('show');
+
+    let courseId = $(this).data('id');
+
+    $.ajax({
+        method: 'GET',
+        url: base_url + `/instructor/courses-content/${courseId}/sort-chapter`,
+        data: {
+            'course_id': courseId
+        },
+        beforeSend: function () {
+            $('.dynamic-modal-content').html(loader);
+        },
+        success: function (data) {
+            $('.dynamic-modal-content').html(data);
+        },
+        error: function (xhr, status, error) {
+            notyf.error(error.message);
+        }
+    })
+});

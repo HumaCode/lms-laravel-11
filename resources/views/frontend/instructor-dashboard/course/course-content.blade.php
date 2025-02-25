@@ -15,7 +15,7 @@
                 <button type="button" class="common_btn dynamic-modal-btn" data-id="{{ $courseId }}">Add
                     New
                     Chapter</button>
-                <a class="common_btn" href="#">Short Chapter</a>
+                <a class="common_btn short_chapter_btn" href="javascript:;" data-id="{{ $courseId }}">Short Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">
 
@@ -61,7 +61,7 @@
                                     @foreach ($chapter->lessons ?? [] as $lesson)
                                         <li class="" data-lesson-id="{{ $lesson->id }}"
                                             data-chapter-id="{{ $chapter->id }}">
-                                            <span>{{ $lesson->title }}.</span>
+                                            <span>{{ $lesson->title }}</span>
                                             <div class="add_course_content_action_btn">
                                                 <a class="edit_lesson edit" data-lesson-id="{{ $lesson->id }}"
                                                     data-chapter-id="{{ $chapter->id }}"

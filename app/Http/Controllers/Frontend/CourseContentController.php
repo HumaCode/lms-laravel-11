@@ -206,4 +206,11 @@ class CourseContentController extends Controller
 
         return response(['status' => 'success', 'message' => 'Updated successfully ...']);
     }
+
+    public function sortChapter($id)
+    {
+        $chapters  = CourseChapter::where('course_id', $id)->get();
+
+        return view('frontend.instructor-dashboard.course.partials.course-chapter-sort-modal', compact('chapters'))->render();
+    }
 }
