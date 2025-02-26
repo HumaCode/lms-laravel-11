@@ -84,8 +84,12 @@ class CourseController extends Controller
                 return view('frontend.instructor-dashboard.course.course-content', compact('courseId', 'chapters'));
                 break;
 
-            default:
-                # code...
+            case '4':
+                $courseId = $request->id;
+                $course   = Course::findOrFail($courseId);
+                $editMode = true;
+
+                return view('frontend.instructor-dashboard.course.finish', compact('course', 'editMode'));
                 break;
         }
     }
@@ -172,8 +176,23 @@ class CourseController extends Controller
                 ]);
                 break;
 
-            default:
-                # code...
+            case '4':
+
+                $request->validate([
+                    'message'               => ['nullable', 'max:1000', 'string'],
+                    'status'                => ['required', 'in:active,inactive,draft'],
+                ]);
+
+                $course = Course::findOrFail($request->id);
+                $course->message_for_reviewer        = $request->message;
+                $course->status                      = $request->status;
+                $course->save();
+
+                return response([
+                    'status'    => 'success',
+                    'message'   => 'Updated successfully',
+                    'redirect'  => route('instructor.courses.index'),
+                ]);
                 break;
         }
     }
