@@ -39,11 +39,11 @@
                                             <a class="dropdown-item" href="javascript:;">Add Lesson
                                             </a>
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Add
+                                        {{--  <li><a class="dropdown-item" href="#">Add
                                                 Document</a>
                                         </li>
                                         <li><a class="dropdown-item" href="#">Add Quiz</a>
-                                        </li>
+                                        </li>  --}}
                                     </ul>
                                 </div>
                                 <a class="edit edit_chapter" href="#" data-course-id="{{ $chapter->course_id }}"

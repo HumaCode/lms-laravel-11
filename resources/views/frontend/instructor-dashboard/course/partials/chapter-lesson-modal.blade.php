@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="add_course_basic_info_imput upload_source ">
+                    <div class="add_course_basic_info_imput upload_source {{ @$lesson->storage == 'upload' ? '' : 'd-none' }}">
                         <label for="demo_video_source ">Path</label>
                         <div class="input-group mt-3">
                             <span class="input-group-btn">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <div class="add_course_basic_info_imput external_source d-none ">
+                    <div class="add_course_basic_info_imput external_source {{ @$lesson->storage != 'upload' ? '' : 'd-none' }} ">
                         <label for="url" class="mb-2">Path</label>
                         <input type="text" name="url" id="url" class="source_input" value="{{ @$lesson?->file_path }}">
                     </div>
