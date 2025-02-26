@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth:web', 'verified', 'check_role:instructor'],
 
     // sort chapter
     Route::get('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter']);
+    Route::post('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'updateSortChapter']);
 
     // sort lesson
     Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson']);

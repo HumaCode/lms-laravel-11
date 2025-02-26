@@ -292,3 +292,4 @@ $('.short_chapter_btn').on('click', function () {
         }
     })
 });
+
