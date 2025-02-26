@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use App\Http\Controllers\Admin\CourseCategoryController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CourseLanguageController;
 use App\Http\Controllers\Admin\CourseLevelController;
 use App\Http\Controllers\Admin\CourseSubCategoryController;
@@ -82,4 +83,38 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::put('/{course_category}/sub-categories/{course_sub_category}', [CourseSubCategoryController::class, 'update'])->name('course-sub-categories.update');
     Route::delete('/{course_category}/sub-categories/{course_sub_category}', [CourseSubCategoryController::class, 'destroy'])->name('course-sub-categories.destroy');
     Route::resource('course-categories', CourseCategoryController::class);
+
+
+    // courses
+    Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
+    Route::post('/courses/create', [CourseController::class, 'storeBasicInfo'])->name('courses.store-basic-info');
+    Route::get('/courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
+    Route::post('/courses/update', [CourseController::class, 'update'])->name('courses.update');
+
+    // // course content
+    // Route::get('/courses-content/{course}/create-chapter', [CourseContentController::class, 'createChapterModel'])->name('courses-content.create-chapter');
+    // Route::post('/courses-content/{course}/create-chapter', [CourseContentController::class, 'storeChapterModel'])->name('courses-content.store-chapter');
+    // Route::get('/courses-content/{chapter}/edit-chapter', [CourseContentController::class, 'editChapterModel'])->name('courses-content.edit-chapter');
+    // Route::put('/courses-content/{chapter}/update-chapter', [CourseContentController::class, 'updateChapterModel'])->name('courses-content.update-chapter');
+    // Route::delete('/courses-content/{chapter}/chapter', [CourseContentController::class, 'destroyChapterModel'])->name('courses-content.destroy-chapter');
+
+    // // course lesson
+    // Route::get('/courses-content/create-lesson', [CourseContentController::class, 'createLesson'])->name('courses-content.create-lesson');
+    // Route::post('/courses-content/create-lesson', [CourseContentController::class, 'storeLesson'])->name('courses-content.store-lesson');
+    // Route::get('/courses-content/edit-lesson', [CourseContentController::class, 'editLesson'])->name('courses-content.edit-lesson');
+    // Route::post('/courses-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('courses-content.update-lesson');
+    // Route::delete('/courses-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('courses-content.destroy-lesson');
+
+    // // sort chapter
+    // Route::get('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter']);
+    // Route::post('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'updateSortChapter']);
+
+    // // sort lesson
+    // Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson']);
+
+    // laravel file manager route
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 });
