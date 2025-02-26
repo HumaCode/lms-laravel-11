@@ -28,12 +28,17 @@
     const csrf_token = $(`meta[name="csrf_token"]`).attr('content');
     const base_url = $(`meta[name="base_url"]`).attr('content');
 
+    $('.btn-close').on('click', function() {
+        window.location.reload();
+    });
+
 if ($('.chapter_sortable_list li').length) {
     $('.chapter_sortable_list').sortable({
         items: "> li",
         containment: "parent",
         cursor: "move",
         handle: '.dragger',
+        forcePlaceholderSize: true,
         update: function (event, ui) {
             let orderIds = $(this).sortable("toArray", {
                 attribute: "data-chapter-id"

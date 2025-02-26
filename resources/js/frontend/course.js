@@ -245,6 +245,7 @@ if ($('.sortable_list li').length) {
         containment: "parent",
         cursor: "move",
         handle: '.dragger',
+        forcePlaceholderSize: true,
         update: function (event, ui) {
             let orderIds = $(this).sortable("toArray", {
                 attribute: "data-lesson-id"
