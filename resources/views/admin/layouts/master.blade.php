@@ -30,6 +30,8 @@
     </style>
 
     @vite(['resources/js/admin/admin.js', 'resources/css/admin.css'])
+
+    @stack('header_scripts')
 </head>
 
 <body>
