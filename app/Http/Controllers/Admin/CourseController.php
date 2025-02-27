@@ -37,7 +37,7 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('frontend.instructor-dashboard.course.create');
+        return view('admin.course.course-module.create');
     }
 
     public function storeBasicInfo(CourseBasicInfoCreateRequest $request)
