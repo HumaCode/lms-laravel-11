@@ -12,8 +12,7 @@
                     <li class="" data-course-id="{{ $chapter->course_id }}" data-chapter-id="{{ $chapter->id }}">
                         <span>{{ $chapter->title }}</span>
                         <div class="add_course_content_action_btn">
-                            <a class="arrow dragger mt-2" href="javascript:;"><i class="fas fa-arrows-alt"
-                                    aria-hidden="true"></i></a>
+                            <a class="arrow dragger" href="javascript:;"><i class="ti ti-arrows-maximize"></i></a>
                         </div>
                     </li>
                 @endforeach
@@ -32,36 +31,36 @@
         window.location.reload();
     });
 
-if ($('.chapter_sortable_list li').length) {
-    $('.chapter_sortable_list').sortable({
-        items: "> li",
-        containment: "parent",
-        cursor: "move",
-        handle: '.dragger',
-        forcePlaceholderSize: true,
-        update: function (event, ui) {
-            let orderIds = $(this).sortable("toArray", {
-                attribute: "data-chapter-id"
-            });
+    if ($('.chapter_sortable_list li').length) {
+        $('.chapter_sortable_list').sortable({
+            items: "> li",
+            containment: "parent",
+            cursor: "move",
+            handle: '.dragger',
+            forcePlaceholderSize: true,
+            update: function(event, ui) {
+                let orderIds = $(this).sortable("toArray", {
+                    attribute: "data-chapter-id"
+                });
 
-            let courseId = ui.item.data("course-id");
+                let courseId = ui.item.data("course-id");
 
 
-            $.ajax({
-                method: 'POST',
-                url: base_url + `/instructor/courses-content/${courseId}/sort-chapter`,
-                data: {
-                    _token: csrf_token,
-                    order_ids: orderIds
-                },
-                success: function (data) {
-                    notyf.success(data.message);
-                },
-                error: function (xhr, status, error) {
-                    notyf.error(error.message);
-                }
-            })
-        }
-    });
-};
+                $.ajax({
+                    method: 'POST',
+                    url: base_url + `/instructor/courses-content/${courseId}/sort-chapter`,
+                    data: {
+                        _token: csrf_token,
+                        order_ids: orderIds
+                    },
+                    success: function(data) {
+                        notyf.success(data.message);
+                    },
+                    error: function(xhr, status, error) {
+                        notyf.error(error.message);
+                    }
+                })
+            }
+        });
+    };
 </script>

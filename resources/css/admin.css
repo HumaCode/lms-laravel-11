@@ -121,3 +121,15 @@ input, select, textarea {
 .add_course_content_action_btn {
     margin-top: 9px;
 }
+
+.item_list.chapter_sortable_list.ui-sortable li{
+	list-style: none;
+	border: 1px solid grey;
+	padding: 14px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.item_list.chapter_sortable_list.ui-sortable li{
+	position: relative;
+}
