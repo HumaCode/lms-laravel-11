@@ -3,8 +3,8 @@ window.$ = window.jQuery = $;
 
 const csrf_token = $(`meta[name="csrf_token"]`).attr("content");
 const base_url = $(`meta[name="base_url"]`).attr("content");
-const basic_info_url = base_url + "/instructor/courses/create";
-const update_url = base_url + "/instructor/courses/update";
+const basic_info_url = base_url + "/admin/courses/create";
+const update_url = base_url + "/admin/courses/update";
 
 var notyf = new Notyf({
     duration: 5000,
@@ -32,7 +32,7 @@ function updateApproveStatus(id, status) {
         success: function (data) {
             window.location.reload();
         },
-        error: function (xhr, status, error) {},
+        error: function (xhr, status, error) { },
     });
 }
 
@@ -64,7 +64,7 @@ $(function () {
             data: formData,
             contentType: false,
             processData: false,
-            beforeSend: function () {},
+            beforeSend: function () { },
             success: function (data) {
                 if (data.status == "success") {
                     window.location.href = data.redirect;
@@ -76,7 +76,7 @@ $(function () {
                     notyf.error(value[0]);
                 });
             },
-            complete: function () {},
+            complete: function () { },
         });
     });
 
@@ -91,7 +91,7 @@ $(function () {
             data: formData,
             contentType: false,
             processData: false,
-            beforeSend: function () {},
+            beforeSend: function () { },
             success: function (data) {
                 if (data.status == "success") {
                     window.location.href = data.redirect;
@@ -103,7 +103,7 @@ $(function () {
                     notyf.error(value[0]);
                 });
             },
-            complete: function () {},
+            complete: function () { },
         });
     });
 
@@ -118,7 +118,7 @@ $(function () {
             data: formData,
             contentType: false,
             processData: false,
-            beforeSend: function () {},
+            beforeSend: function () { },
             success: function (data) {
                 if (data.status == "success") {
                     window.location.href = data.redirect;
@@ -130,7 +130,7 @@ $(function () {
                     notyf.error(value[0]);
                 });
             },
-            complete: function () {},
+            complete: function () { },
         });
     });
 
@@ -170,7 +170,7 @@ $(function () {
             success: function (data) {
                 $(".dynamic-modal-content").html(data);
             },
-            error: function (xhr, status, error) {},
+            error: function (xhr, status, error) { },
         });
     });
 
@@ -197,7 +197,7 @@ $(function () {
             success: function (data) {
                 $(".dynamic-modal-content").html(data);
             },
-            error: function (xhr, status, error) {},
+            error: function (xhr, status, error) { },
         });
     });
 
@@ -220,7 +220,7 @@ $(function () {
             success: function (data) {
                 $(".dynamic-modal-content").html(data);
             },
-            error: function (xhr, status, error) {},
+            error: function (xhr, status, error) { },
         });
     });
 
@@ -245,7 +245,7 @@ $(function () {
             success: function (data) {
                 $(".dynamic-modal-content").html(data);
             },
-            error: function (xhr, status, error) {},
+            error: function (xhr, status, error) { },
         });
     });
 

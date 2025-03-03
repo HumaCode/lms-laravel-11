@@ -2,107 +2,111 @@
 
 
 @section('tab_content')
-<div class="tab-content" id="pills-tabContent" data-select2-id="select2-data-pills-tabContent">
-    <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-        <div class="add_course_basic_info">
-            <form action="{{ route('instructor.courses.store-basic-info') }}" method="POST" class="basic_info_form course-form" enctype="multipart/form-data">
-                @csrf
+    <div class="tab-content" id="pills-tabContent" data-select2-id="select2-data-pills-tabContent">
+        <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            <div class="add_course_basic_info">
+                <form action="{{ route('admin.courses.store-basic-info') }}" method="POST"
+                    class="basic_info_form course-form" enctype="multipart/form-data">
+                    @csrf
 
-                <input type="hidden" name="current_step" value="1">
-                <input type="hidden" name="next_step" value="2">
+                    <input type="hidden" name="current_step" value="1">
+                    <input type="hidden" name="next_step" value="2">
 
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="add_course_basic_info_imput">
-                            <label for="demo_video_storage">Instructor *
-                            </label>
-                            <select class="select_js storage select2" name="demo_video_storage" id="demo_video_storage">
-                                <option selected disabled> Please Select </option>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="add_course_basic_info_imput">
+                                <label for="demo_video_storage">Instructor *
+                                </label>
+                                <select class="select_js storage select2" name="instructor_id" id="instructor_id">
+                                    <option selected disabled> Please Select </option>
 
-                                @foreach ($instructors as $instructor)
-                                    <option value="{{ $instructor->id }}">{{ $instructor->name }} - {{ $instructor->email }}</option>
-                                @endforeach
-                            </select>
+                                    @foreach ($instructors as $instructor)
+                                        <option value="{{ $instructor->id }}">{{ $instructor->name }} -
+                                            {{ $instructor->email }}</option>
+                                    @endforeach
+                                </select>
 
-                        </div>
-                    </div>
-
-                    <div class="col-xl-12">
-                        <div class="add_course_basic_info_imput">
-                            <label for="#">Title *</label>
-                            <input type="text" placeholder="Title" name="title">
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="add_course_basic_info_imput">
-                            <label for="#">Seo description</label>
-                            <input type="text" placeholder="Seo description" name="seo_description">
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="add_course_basic_info_imput">
-                            <label for="#">Thumbnail *</label>
-                            <input type="file" name="thumbnail">
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="add_course_basic_info_imput">
-                            <label for="demo_video_storage">Demo Video Storage
-                            </label>
-                            <select class="select_js storage" name="demo_video_storage" id="demo_video_storage">
-                                <option selected disabled> Please Select </option>
-                                <option value="upload">Upload</option>
-                                <option value="youtube">Youtube</option>
-                                <option value="vimeo">Vimeo</option>
-                                <option value="external_link">External Link</option>
-                            </select>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="add_course_basic_info_imput upload_source">
-                            <label for="demo_video_source">Path</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                        <i class="fa fa-picture-o"></i> Choose
-                                    </a>
-                                </span>
-                                <input id="thumbnail" class="form-control source_input" type="text" name="file" value="">
                             </div>
                         </div>
 
-                        <div class="add_course_basic_info_imput external_source d-none">
-                            <label for="url">Path</label>
-                            <input type="text" name="url" id="url" class="source_input" value="">
+                        <div class="col-xl-12">
+                            <div class="add_course_basic_info_imput">
+                                <label for="#">Title *</label>
+                                <input type="text" placeholder="Title" name="title">
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="add_course_basic_info_imput">
+                                <label for="#">Seo description</label>
+                                <input type="text" placeholder="Seo description" name="seo_description">
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="add_course_basic_info_imput">
+                                <label for="#">Thumbnail *</label>
+                                <input type="file" name="thumbnail">
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="add_course_basic_info_imput">
+                                <label for="demo_video_storage">Demo Video Storage
+                                </label>
+                                <select class="select_js storage" name="demo_video_storage" id="demo_video_storage">
+                                    <option selected disabled> Please Select </option>
+                                    <option value="upload">Upload</option>
+                                    <option value="youtube">Youtube</option>
+                                    <option value="vimeo">Vimeo</option>
+                                    <option value="external_link">External Link</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="add_course_basic_info_imput upload_source">
+                                <label for="demo_video_source">Path</label>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                            class="btn btn-primary">
+                                            <i class="fa fa-picture-o"></i> Choose
+                                        </a>
+                                    </span>
+                                    <input id="thumbnail" class="form-control source_input" type="text" name="file"
+                                        value="">
+                                </div>
+                            </div>
+
+                            <div class="add_course_basic_info_imput external_source d-none">
+                                <label for="url">Path</label>
+                                <input type="text" name="url" id="url" class="source_input" value="">
+                            </div>
+
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="add_course_basic_info_imput">
+                                <label for="price">Price *</label>
+                                <input type="text" placeholder="Price" name="price" id="price">
+                                <p>Put 0 for free</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="add_course_basic_info_imput">
+                                <label for="discount">Discount Price</label>
+                                <input type="text" placeholder="Discount Price" name="discount" id="discount">
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="add_course_basic_info_imput ">
+                                <label for="description">Description</label>
+                                <textarea rows="8" placeholder="Description" name="description"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-2">Save</button>
                         </div>
 
                     </div>
-                    <div class="col-xl-6">
-                        <div class="add_course_basic_info_imput">
-                            <label for="price">Price *</label>
-                            <input type="text" placeholder="Price" name="price" id="price">
-                            <p>Put 0 for free</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="add_course_basic_info_imput">
-                            <label for="discount">Discount Price</label>
-                            <input type="text" placeholder="Discount Price" name="discount" id="discount">
-                        </div>
-                    </div>
-                    <div class="col-xl-12">
-                        <div class="add_course_basic_info_imput ">
-                            <label for="description">Description</label>
-                            <textarea rows="8" placeholder="Description" name="description"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary mt-2">Save</button>
-                    </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 @endsection
