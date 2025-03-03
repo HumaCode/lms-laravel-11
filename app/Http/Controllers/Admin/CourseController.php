@@ -76,7 +76,7 @@ class CourseController extends Controller
             case '1':
                 $course = Course::findOrFail($request->id);
 
-                return view('frontend.instructor-dashboard.course.edit', compact('course'));
+                return view('admin.course.course-module.edit', compact('course'));
 
                 break;
             case '2':
@@ -85,7 +85,7 @@ class CourseController extends Controller
                 $languages      = CourseLanguage::get();
                 $course         = Course::findOrFail($request->id);
 
-                return view('frontend.instructor-dashboard.course.more-info', compact('categories', 'levels', 'languages', 'course'));
+                return view('admin.course.course-module.more-info', compact('categories', 'levels', 'languages', 'course'));
                 break;
 
             case '3':
@@ -147,7 +147,7 @@ class CourseController extends Controller
                 return response([
                     'status'    => 'success',
                     'message'   => 'Created successfully',
-                    'redirect'  => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
+                    'redirect'  => route('admin.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
                 ]);
                 break;
             case '2':
@@ -174,7 +174,7 @@ class CourseController extends Controller
                 return response([
                     'status'    => 'success',
                     'message'   => 'Updated successfully',
-                    'redirect'  => route('instructor.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
+                    'redirect'  => route('admin.courses.edit', ['id' => $course->id, 'step' => $request->next_step]),
                 ]);
                 break;
 

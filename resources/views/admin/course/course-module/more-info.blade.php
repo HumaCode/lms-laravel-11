@@ -1,6 +1,6 @@
-@extends('frontend.instructor-dashboard.course.course-app')
+@extends('admin.course.course-module.course-app')
 
-@section('contest')
+@section('tab_content')
     <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
         <div class="add_course_basic_info">
 
@@ -11,28 +11,32 @@
                 <input type="hidden" name="current_step" value="2">
                 <input type="hidden" name="next_step" value="3">
 
-                <div class="row" >
+                <div class="row">
                     <div class="col-xl-6">
                         <div class="add_course_more_info_input">
                             <label for="capacity">Capacity</label>
-                            <input type="text" placeholder="Capacity" name="capacity" id="capacity" value="{{ $course?->capacity }}">
+                            <input type="text" placeholder="Capacity" name="capacity" id="capacity"
+                                value="{{ $course?->capacity }}">
                             <p>leave blank for unlimited</p>
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_more_info_input">
                             <label for="duration">Course Duration (Minutes)*</label>
-                            <input type="text" placeholder="300" name="duration" id="duration" value="{{ $course?->duration }}">
+                            <input type="text" placeholder="300" name="duration" id="duration"
+                                value="{{ $course?->duration }}">
                         </div>
                     </div>
                     <div class="col-xl-6">
                         <div class="add_course_more_info_checkbox">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="qna" value="1" @checked($course?->qna === 1) id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" name="qna" value="1"
+                                    @checked($course?->qna === 1) id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">Q&amp;A</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="certificate" value="1" @checked($course?->certificate === 1) id="flexCheckDefault2">
+                                <input class="form-check-input" type="checkbox" name="certificate" value="1"
+                                    @checked($course?->certificate === 1) id="flexCheckDefault2">
                                 <label class="form-check-label" for="flexCheckDefault2">Completion Certificate</label>
                             </div>
                         </div>
@@ -40,8 +44,7 @@
                     <div class="col-12" data-select2-id="select2-data-9-zhyi">
                         <div class="add_course_more_info_input" data-select2-id="select2-data-8-78yb">
                             <label for="category">Category *</label>
-                            <select class="select_2"
-                                tabindex="-1" aria-hidden="true" name="category" id="category">
+                            <select class="select2" tabindex="-1" aria-hidden="true" name="category" id="category">
 
                                 <option selected disabled>Please Select </option>
 
@@ -62,12 +65,13 @@
                     </div>
 
                     <div class="col-xl-4">
-                        <div class="add_course_more_info_radio_box">
+                        <div class="add_course_more_info_radio_box card p-3">
                             <h3>Level</h3>
 
                             @foreach ($levels as $level)
                                 <div class="form-check">
-                                    <input class="form-check-input" value="{{ $level->id }}" type="radio" @checked($course?->course_level_id == $level->id) name="level" id="id-{{ $level->id }}">
+                                    <input class="form-check-input" value="{{ $level->id }}" type="radio"
+                                        @checked($course?->course_level_id == $level->id) name="level" id="id-{{ $level->id }}">
                                     <label class="form-check-label" for="id-{{ $level->id }}">
                                         {{ $level->name }}
                                     </label>
@@ -77,24 +81,23 @@
                         </div>
                     </div>
                     <div class="col-xl-4">
-                        <div class="add_course_more_info_radio_box">
+                        <div class="add_course_more_info_radio_box card p-3">
                             <h3>Language</h3>
 
                             @foreach ($languages as $language)
-
                                 <div class="form-check">
-                                    <input class="form-check-input" value="{{ $language->id }}" type="radio" @checked($course?->course_language_id == $language->id) name="language" id="lang-{{ $language->id }}" >
+                                    <input class="form-check-input" value="{{ $language->id }}" type="radio"
+                                        @checked($course?->course_language_id == $language->id) name="language" id="lang-{{ $language->id }}">
                                     <label class="form-check-label" for="lang-{{ $language->id }}">
                                         {{ $language->name }}
                                     </label>
                                 </div>
-
                             @endforeach
 
                         </div>
                     </div>
-                    <div class="col-xl-12">
-                        <button type="submit" class="common_btn">Save</button>
+                    <div class="col-xl-12 mt-3">
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </form>

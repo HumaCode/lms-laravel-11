@@ -22,4 +22,20 @@ input, select, textarea {
 
 .add_course_basic_info_imput label {
     margin-bottom: 5px;
+
+}
+.add_course_more_info_input label {
+    margin-bottom: 5px;
+}
+
+.add_course_more_info_input {
+    margin-bottom: 10px;
+}
+
+.form-check-input[type=radio] {
+    padding: 12px 12px !important;
+}
+
+.form-check-input[type=checkbox] {
+    padding: 12px 12px !important;
 }
