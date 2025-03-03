@@ -101,12 +101,12 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::put('/courses-content/{chapter}/update-chapter', [CourseContentController::class, 'updateChapterModel'])->name('courses-content.update-chapter');
     Route::delete('/courses-content/{chapter}/chapter', [CourseContentController::class, 'destroyChapterModel'])->name('courses-content.destroy-chapter');
 
-    // // course lesson
-    // Route::get('/courses-content/create-lesson', [CourseContentController::class, 'createLesson'])->name('courses-content.create-lesson');
-    // Route::post('/courses-content/create-lesson', [CourseContentController::class, 'storeLesson'])->name('courses-content.store-lesson');
-    // Route::get('/courses-content/edit-lesson', [CourseContentController::class, 'editLesson'])->name('courses-content.edit-lesson');
-    // Route::post('/courses-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('courses-content.update-lesson');
-    // Route::delete('/courses-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('courses-content.destroy-lesson');
+    // course lesson
+    Route::get('/courses-content/create-lesson', [CourseContentController::class, 'createLesson'])->name('courses-content.create-lesson');
+    Route::post('/courses-content/create-lesson', [CourseContentController::class, 'storeLesson'])->name('courses-content.store-lesson');
+    Route::get('/courses-content/edit-lesson', [CourseContentController::class, 'editLesson'])->name('courses-content.edit-lesson');
+    Route::post('/courses-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('courses-content.update-lesson');
+    Route::delete('/courses-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('courses-content.destroy-lesson');
 
     // // sort chapter
     // Route::get('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter']);

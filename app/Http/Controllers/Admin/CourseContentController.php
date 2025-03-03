@@ -43,7 +43,7 @@ class CourseContentController extends Controller
         $editMode   = true;
         $chapter    = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
 
-        return view('frontend.instructor-dashboard.course.partials.course-chapter', compact('chapter', 'editMode'))->render();
+        return view('admin.course.course-module.partials.chapter-lesson-modal', compact('chapter', 'editMode'))->render();
     }
 
     public function updateChapterModel(Request $request, $id)
@@ -84,7 +84,7 @@ class CourseContentController extends Controller
         $courseId   = $request->course_id;
         $chapterId  = $request->chapter_id;
 
-        return view('frontend.instructor-dashboard.course.partials.chapter-lesson-modal', compact('courseId', 'chapterId'))->render();
+        return view('admin.course.course-module.partials.chapter-lesson-modal', compact('courseId', 'chapterId'))->render();
     }
 
     public function storeLesson(Request $request)

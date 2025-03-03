@@ -13,10 +13,10 @@
 
         <div class="add_course_content">
             <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
-                <button type="button" class="btn btn-primary mt-3 dynamic-modal-btn" data-id="{{ $courseId }}">Add
+                <button type="button" class="btn btn-primary my-3 dynamic-modal-btn" data-id="{{ $courseId }}">Add
                     New
                     Chapter</button>
-                <a class="btn btn-success mt-3 short_chapter_btn" href="javascript:;" data-id="{{ $courseId }}">Short
+                <a class="btn btn-success my-3 short_chapter_btn" href="javascript:;" data-id="{{ $courseId }}">Short
                     Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">
@@ -33,7 +33,7 @@
                                 <div class="dropdown">
                                     <div class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        <i class="far fa-plus" aria-hidden="true"></i>
+                                        <i class="ti ti-plus"></i>
                                     </div>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li class="add_lesson" data-chapter-id="{{ $chapter->id }}"
@@ -49,10 +49,10 @@
                                     </ul>
                                 </div>
                                 <a class="edit edit_chapter" href="#" data-course-id="{{ $chapter->course_id }}"
-                                    data-chapter-id="{{ $chapter->id }}"><i class="far fa-edit" aria-hidden="true"></i></a>
+                                    data-chapter-id="{{ $chapter->id }}"><i class="ti ti-edit"></i></a>
                                 <a class="del delete-item"
                                     href="{{ route('instructor.courses-content.destroy-chapter', $chapter->id) }}"><i
-                                        class="fas fa-trash-alt" aria-hidden="true"></i></a>
+                                        class="ti ti-trash" style="color: red"></i></a>
                             </div>
                         </h2>
                         <div id="collapse-{{ $chapter->id }}" class="accordion-collapse collapse "
@@ -68,10 +68,10 @@
                                                 <a class="edit_lesson edit" data-lesson-id="{{ $lesson->id }}"
                                                     data-chapter-id="{{ $chapter->id }}"
                                                     data-course-id="{{ $chapter->course_id }}" href="javascript:;"><i
-                                                        class="far fa-edit" aria-hidden="true"></i></a>
+                                                        class="ti ti-edit"></i></a>
                                                 <a class="del delete-item"
                                                     href="{{ route('instructor.courses-content.destroy-lesson', $lesson->id) }}"><i
-                                                        class="fas fa-trash-alt" aria-hidden="true"></i></a>
+                                                        class="ti ti-trash" style="color: red"></i></a>
                                                 <a class="arrow dragger" href="javascript:;"><i class="fas fa-arrows-alt"
                                                         aria-hidden="true"></i></a>
                                             </div>
