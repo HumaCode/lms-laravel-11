@@ -114,6 +114,9 @@
     <script src="{{ asset('/') }}admin/assets/dist/js/tabler.min.js?1692870487" defer></script>
     <script src="{{ asset('/') }}admin/assets/dist/js/demo.min.js?1692870487" defer></script>
 
+    {{-- jquery ui --}}
+    <script src="{{ asset('/') }}frontend/assets/js/jquery-ui.min.js" defer></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
 
     {{--  lfm  --}}
