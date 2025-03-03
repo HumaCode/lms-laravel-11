@@ -12,6 +12,21 @@
                 <input type="hidden" name="next_step" value="2">
 
                 <div class="row">
+                    <div class="col-xl-6">
+                        <div class="add_course_basic_info_imput">
+                            <label for="demo_video_storage">Instructor *
+                            </label>
+                            <select class="select_js storage select2" name="demo_video_storage" id="demo_video_storage">
+                                <option selected disabled> Please Select </option>
+
+                                @foreach ($instructors as $instructor)
+                                    <option value="{{ $instructor->id }}">{{ $instructor->name }} - {{ $instructor->email }}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+                    </div>
+
                     <div class="col-xl-12">
                         <div class="add_course_basic_info_imput">
                             <label for="#">Title *</label>

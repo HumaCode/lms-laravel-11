@@ -115,7 +115,7 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     // Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson']);
 
     // laravel file manager route
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 });

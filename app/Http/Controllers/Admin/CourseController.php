@@ -10,6 +10,7 @@ use App\Models\CourseCategory;
 use App\Models\CourseChapter;
 use App\Models\CourseLanguage;
 use App\Models\CourseLevel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -37,7 +38,9 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('admin.course.course-module.create');
+        $instructors = User::where('role', 'instructor')->where('approved_status', 'approved')->get();
+
+        return view('admin.course.course-module.create', compact('instructors'));
     }
 
     public function storeBasicInfo(CourseBasicInfoCreateRequest $request)

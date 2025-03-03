@@ -15,6 +15,8 @@
     {{-- icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <!-- CSS files -->
     <link href="{{ asset('/') }}admin/assets/dist/css/tabler.min.css?1692870487" rel="stylesheet" />
     <link href="{{ asset('/') }}admin/assets/dist/css/demo.min.css?1692870487" rel="stylesheet" />
@@ -103,6 +105,8 @@
     <!-- Tabler Core -->
     <script src="{{ asset('/') }}admin/assets/dist/js/tabler.min.js?1692870487" defer></script>
     <script src="{{ asset('/') }}admin/assets/dist/js/demo.min.js?1692870487" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
 
     {{--  lfm  --}}
     <script src="{{ asset('/') }}vendor/laravel-filemanager/js/stand-alone-button.js" defer></script>

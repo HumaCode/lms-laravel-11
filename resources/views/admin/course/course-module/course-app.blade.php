@@ -84,7 +84,7 @@
 
 @push('scripts')
     <script type="module">
-        $('#lfm').filemanager('file', {prefix: 'admin'});
+        $('#lfm').filemanager('file', {prefix: '/admin/laravel-filemanager'});
     </script>
 @endpush
 
