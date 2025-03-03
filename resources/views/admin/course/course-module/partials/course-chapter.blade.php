@@ -4,7 +4,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <form
-        action="{{ @$editMode == true ? route('instructor.courses-content.update-chapter', @$chapter->id) : route('instructor.courses-content.store-chapter', $id) }}"
+        action="{{ @$editMode == true ? route('admin.courses-content.update-chapter', @$chapter->id) : route('admin.courses-content.store-chapter', $id) }}"
         method="POST">
         @csrf
 

@@ -90,9 +90,9 @@ class CourseController extends Controller
 
             case '3':
                 $courseId = $request->id;
-                $chapters = CourseChapter::where(['course_id' => $courseId, 'instructor_id' => Auth::user()->id])->orderBy('order')->get();
+                $chapters = CourseChapter::where(['course_id' => $courseId])->orderBy('order')->get();
 
-                return view('frontend.instructor-dashboard.course.course-content', compact('courseId', 'chapters'));
+                return view('admin.course.course-module.course-content', compact('courseId', 'chapters'));
                 break;
 
             case '4':

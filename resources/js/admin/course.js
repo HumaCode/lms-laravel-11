@@ -159,7 +159,7 @@ $(function () {
             method: "GET",
             url:
                 base_url +
-                "/instructor/courses-content/:id/create-chapter".replace(
+                "/admin/courses-content/:id/create-chapter".replace(
                     ":id",
                     course_id
                 ),
@@ -186,7 +186,7 @@ $(function () {
             method: "GET",
             url:
                 base_url +
-                "/instructor/courses-content/:id/edit-chapter".replace(
+                "/admin/courses-content/:id/edit-chapter".replace(
                     ":id",
                     chapter_id
                 ),
@@ -209,7 +209,7 @@ $(function () {
 
         $.ajax({
             method: "GET",
-            url: base_url + "/instructor/courses-content/create-lesson",
+            url: base_url + "/admin/courses-content/create-lesson",
             data: {
                 course_id: courseId,
                 chapter_id: chapterId,
@@ -233,7 +233,7 @@ $(function () {
 
         $.ajax({
             method: "GET",
-            url: base_url + "/instructor/courses-content/edit-lesson",
+            url: base_url + "/admin/courses-content/edit-lesson",
             data: {
                 course_id: courseId,
                 chapter_id: chapterId,
@@ -267,7 +267,7 @@ $(function () {
                     method: "POST",
                     url:
                         base_url +
-                        `/instructor/courses-chapter/${chapterId}/sort-lesson`,
+                        `/admin/courses-chapter/${chapterId}/sort-lesson`,
                     data: {
                         _token: csrf_token,
                         order_ids: orderIds,
@@ -292,7 +292,7 @@ $(function () {
             method: "GET",
             url:
                 base_url +
-                `/instructor/courses-content/${courseId}/sort-chapter`,
+                `/admin/courses-content/${courseId}/sort-chapter`,
             data: {
                 course_id: courseId,
             },

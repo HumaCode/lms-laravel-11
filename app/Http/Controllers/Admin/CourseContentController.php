@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\CourseChapter;
 use App\Models\CourseChapterLession;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class CourseContentController extends Controller
 {
     public function createChapterModel($id)
     {
-        return view('frontend.instructor-dashboard.course.partials.course-chapter', compact('id'))->render();
+        return view('admin.course.course-module.partials.course-chapter', compact('id'))->render();
     }
 
     public function storeChapterModel(Request $request, $courseId)
@@ -23,10 +24,12 @@ class CourseContentController extends Controller
             'title'         => ['required', 'max:255'],
         ]);
 
+        $course = Course::findOrFail($courseId);
+
         $chapter = new CourseChapter();
         $chapter->title             = $request->title;
         $chapter->course_id         = $courseId;
-        $chapter->instructor_id     = Auth::user()->id;
+        $chapter->instructor_id     = $course->instructor_id;
         $chapter->order             = CourseChapter::where('course_id', $courseId)->count() + 1;
         $chapter->save();
 

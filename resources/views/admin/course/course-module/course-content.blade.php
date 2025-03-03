@@ -1,6 +1,7 @@
-@extends('frontend.instructor-dashboard.course.course-app')
+@extends('admin.course.course-module.course-app')
 
-@section('contest')
+
+@section('tab_content')
     <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
         <form action="" class="course-form more_info_form">
             @csrf
@@ -12,10 +13,11 @@
 
         <div class="add_course_content">
             <div class="add_course_content_btn_area d-flex flex-wrap justify-content-between">
-                <button type="button" class="common_btn dynamic-modal-btn" data-id="{{ $courseId }}">Add
+                <button type="button" class="btn btn-primary mt-3 dynamic-modal-btn" data-id="{{ $courseId }}">Add
                     New
                     Chapter</button>
-                <a class="common_btn short_chapter_btn" href="javascript:;" data-id="{{ $courseId }}">Short Chapter</a>
+                <a class="btn btn-success mt-3 short_chapter_btn" href="javascript:;" data-id="{{ $courseId }}">Short
+                    Chapter</a>
             </div>
             <div class="accordion" id="accordionExample">
 
