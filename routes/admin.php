@@ -108,12 +108,12 @@ Route::group(["middleware" => "auth:admin", "prefix" => "admin", "as" => "admin.
     Route::post('/courses-content/{id}/update-lesson', [CourseContentController::class, 'updateLesson'])->name('courses-content.update-lesson');
     Route::delete('/courses-content/{id}/lesson', [CourseContentController::class, 'destroyLesson'])->name('courses-content.destroy-lesson');
 
-    // // sort chapter
-    // Route::get('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter']);
-    // Route::post('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'updateSortChapter']);
+    // sort chapter
+    Route::get('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'sortChapter']);
+    Route::post('/courses-content/{course}/sort-chapter', [CourseContentController::class, 'updateSortChapter']);
 
-    // // sort lesson
-    // Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson']);
+    // sort lesson
+    Route::post('/courses-chapter/{chapter}/sort-lesson', [CourseContentController::class, 'sortLesson']);
 
     // laravel file manager route
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth:admin']], function () {

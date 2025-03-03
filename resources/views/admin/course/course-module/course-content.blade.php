@@ -51,7 +51,7 @@
                                 <a class="edit edit_chapter" href="#" data-course-id="{{ $chapter->course_id }}"
                                     data-chapter-id="{{ $chapter->id }}"><i class="ti ti-edit"></i></a>
                                 <a class="del delete-item"
-                                    href="{{ route('instructor.courses-content.destroy-chapter', $chapter->id) }}"><i
+                                    href="{{ route('admin.courses-content.destroy-chapter', $chapter->id) }}"><i
                                         class="ti ti-trash" style="color: red"></i></a>
                             </div>
                         </h2>
@@ -70,10 +70,10 @@
                                                     data-course-id="{{ $chapter->course_id }}" href="javascript:;"><i
                                                         class="ti ti-edit"></i></a>
                                                 <a class="del delete-item"
-                                                    href="{{ route('instructor.courses-content.destroy-lesson', $lesson->id) }}"><i
+                                                    href="{{ route('admin.courses-content.destroy-lesson', $lesson->id) }}"><i
                                                         class="ti ti-trash" style="color: red"></i></a>
-                                                <a class="arrow dragger" href="javascript:;"><i class="fas fa-arrows-alt"
-                                                        aria-hidden="true"></i></a>
+                                                <a class="arrow dragger" href="javascript:;"><i
+                                                        class="ti ti-arrows-maximize"></i></a>
                                             </div>
                                         </li>
                                     @endforeach
@@ -91,7 +91,9 @@
 @endsection
 
 @push('scripts')
-    <script>
-        $('#lfm').filemanager('file');
+    <script type="module">
+        $('#lfm').filemanager('file', {
+            prefix: '/admin/laravel-filemanager'
+        });
     </script>
 @endpush

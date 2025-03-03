@@ -41,7 +41,7 @@ class CourseContentController extends Controller
     public function editChapterModel($id)
     {
         $editMode   = true;
-        $chapter    = CourseChapter::where(['id' => $id, 'instructor_id' => Auth::user()->id])->firstOrFail();
+        $chapter    = CourseChapter::where(['id' => $id])->firstOrFail();
 
         return view('admin.course.course-module.partials.chapter-lesson-modal', compact('chapter', 'editMode'))->render();
     }
@@ -136,7 +136,7 @@ class CourseContentController extends Controller
         $lessonId   = $request->lesson_id;
         $lesson     = CourseChapterLession::where(['id' => $lessonId, 'chapter_id' => $chapterId, 'course_id' => $courseId, 'instructor_id' => Auth::user()->id])->first();
 
-        return view('frontend.instructor-dashboard.course.partials.chapter-lesson-modal', compact('courseId', 'chapterId', 'lessonId', 'lesson', 'editMode'))->render();
+        return view('admin.course.course-module.partials.chapter-lesson-modal', compact('courseId', 'chapterId', 'lessonId', 'lesson', 'editMode'))->render();
     }
 
     public function updateLesson(Request $request, $id)
@@ -214,7 +214,7 @@ class CourseContentController extends Controller
     {
         $chapters  = CourseChapter::where('course_id', $id)->orderBy('order')->get();
 
-        return view('frontend.instructor-dashboard.course.partials.course-chapter-sort-modal', compact('chapters'))->render();
+        return view('admin.course.course-module.partials.course-chapter-sort-modal', compact('chapters'))->render();
     }
 
     public function updateSortChapter(Request $request, $id)
