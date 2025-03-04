@@ -86,7 +86,7 @@
                         <div class="add_course_basic_info_imput mb-0">
                             <label for="description">Description</label>
                             <textarea rows="8" placeholder="Description" name="description">{{ $course->description }}</textarea>
-                            <button type="submit" class="common_btn mt_20">Save</button>
+                            <button type="submit" class="common_btn btn btn-primary">Save</button>
                         </div>
                     </div>
                 </div>
@@ -96,8 +96,8 @@
 @endsection
 
 
-@push('scripts')
+{{--  @push('scripts')
     <script>
         $('#lfm').filemanager('file');
     </script>
-@endpush
+@endpush  --}}

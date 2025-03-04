@@ -96,7 +96,7 @@
                                                                 </select>
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('admin.courses.edit', $course->id) }}"
+                                                                <a href="{{ route('admin.courses.edit', ['id' => $course->id, 'step' => 1]) }}"
                                                                     class="btn-sm btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
