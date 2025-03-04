@@ -105,6 +105,9 @@ class CourseContentController extends Controller
             $rules['url'] = ['required'];
         }
 
+        $courseId = $request->course_id;
+        $course = Course::findOrFail($courseId);
+
         $request->validate($rules);
 
         $lesson = new CourseChapterLession();
@@ -117,7 +120,7 @@ class CourseContentController extends Controller
         $lesson->is_preview     = $request->filled('is_preview') ? 1 : 0;
         $lesson->downloadable   = $request->filled('downloadable') ? 1 : 0;
         $lesson->description    = $request->description;
-        $lesson->instructor_id  = Auth::user()->id;
+        $lesson->instructor_id  = $course->instructor_id;
         $lesson->course_id      = $request->course_id;
         $lesson->chapter_id     = $request->chapter_id;
         $lesson->order          = CourseChapterLession::where('chapter_id', $request->chapter_id)->count() + 1;
@@ -134,7 +137,7 @@ class CourseContentController extends Controller
         $courseId   = $request->course_id;
         $chapterId  = $request->chapter_id;
         $lessonId   = $request->lesson_id;
-        $lesson     = CourseChapterLession::where(['id' => $lessonId, 'chapter_id' => $chapterId, 'course_id' => $courseId, 'instructor_id' => Auth::user()->id])->first();
+        $lesson     = CourseChapterLession::where(['id' => $lessonId, 'chapter_id' => $chapterId, 'course_id' => $courseId])->first();
 
         return view('admin.course.course-module.partials.chapter-lesson-modal', compact('courseId', 'chapterId', 'lessonId', 'lesson', 'editMode'))->render();
     }
@@ -157,6 +160,9 @@ class CourseContentController extends Controller
             $rules['url'] = ['required'];
         }
 
+        $courseId = $request->course_id;
+        $course = Course::findOrFail($courseId);
+
         $request->validate($rules);
 
         $lesson                 = CourseChapterLession::findOrFail($id);
@@ -169,7 +175,7 @@ class CourseContentController extends Controller
         $lesson->is_preview     = $request->filled('is_preview') ? 1 : 0;
         $lesson->downloadable   = $request->filled('downloadable') ? 1 : 0;
         $lesson->description    = $request->description;
-        $lesson->instructor_id  = Auth::user()->id;
+        $lesson->instructor_id  = $course->instructor_id;
         $lesson->course_id      = $request->course_id;
         $lesson->chapter_id     = $request->chapter_id;
         $lesson->save();

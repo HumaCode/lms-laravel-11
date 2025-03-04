@@ -100,7 +100,7 @@ class CourseController extends Controller
                 $course   = Course::findOrFail($courseId);
                 $editMode = true;
 
-                return view('frontend.instructor-dashboard.course.finish', compact('course', 'editMode'));
+                return view('admin.course.course-module.finish', compact('course', 'editMode'));
                 break;
         }
     }
@@ -138,7 +138,7 @@ class CourseController extends Controller
                 $course->price                = $request->price;
                 $course->discount             = $request->discount;
                 $course->description          = $request->description;
-                $course->instructor_id        = Auth::guard('web')->user()->id;
+                $course->instructor_id        = $course->instructor_id;
                 $course->save();
 
                 // save session id
@@ -183,7 +183,7 @@ class CourseController extends Controller
                 return response([
                     'status'    => 'success',
                     'message'   => 'Updated successfully',
-                    'redirect'  => route('instructor.courses.edit', ['id' => $request->id, 'step' => $request->next_step]),
+                    'redirect'  => route('admin.courses.edit', ['id' => $request->id, 'step' => $request->next_step]),
                 ]);
                 break;
 
@@ -202,7 +202,7 @@ class CourseController extends Controller
                 return response([
                     'status'    => 'success',
                     'message'   => 'Updated successfully',
-                    'redirect'  => route('instructor.courses.index'),
+                    'redirect'  => route('admin.courses.index'),
                 ]);
                 break;
         }

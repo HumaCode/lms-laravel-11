@@ -1,6 +1,6 @@
-@extends('admin.layouts.master')
+@extends('admin.course.course-module.course-app')
 
-@section('content')
+@section('tab_content')
     <!-- Page header -->
     <div class="page-header d-print-none">
         <div class="container-xl">
@@ -96,7 +96,7 @@
                                                                 </select>
                                                             </td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('admin.course-levels.edit', $course->id) }}"
+                                                                <a href="{{ route('admin.courses.edit', $course->id) }}"
                                                                     class="btn-sm btn-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                         height="24" viewBox="0 0 24 24" fill="none"
