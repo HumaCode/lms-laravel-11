@@ -174,7 +174,7 @@
                 <a class="nav-link active" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="{{ route('courses.index') }}">Courses</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Courses <i class="far fa-angle-down"></i></a>
